@@ -4,30 +4,31 @@
 # name of the character.
 
 define e = Character("Cat")
-
+define f = Character("Catective")
 
 # The game starts here.
 
 label start:
+    "Welcome to the dream world."
+    $ player_name = renpy.input("What is your name?")
+    $ player_name = player_name.strip()
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    if player_name == "":
+        $ player_name="Bob"
 
-    scene bg_test
+    e "Pleased to meet you, %(player_name)s!"
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    scene bg_test # shows background
 
-    show cat_wig
-
-    # These display lines of dialogue.
+    show cat_wig # shows character
 
     e "Muahahahaha"
 
     e "I have taken over the world!!!!"
 
-    # This ends the game.
+    hide cat_wig
+
+    show detective_cat
+    f "eh?"
 
     return
