@@ -86,17 +86,29 @@ define gui.title_text_size = 75
 
 ## Main and Game Menus #########################################################
 image main_menu_animated:
-    "gui/actual_menu.png"
+    "gui/main_menu/main_menu1.png"
     pause 0.15
-    "gui/actual_menu2.png"
+    "gui/main_menu/main_menu2.png"
     pause 0.15
-    "gui/actual_menu3.png"
+    "gui/main_menu/main_menu3.png"
     pause 0.15
-    "gui/actual_menu2.png"
+    "gui/main_menu/main_menu4.png"
     pause 0.15
-    "gui/actual_menu.png"
+    "gui/main_menu/main_menu3.png"
     pause 0.15
-    "gui/actual_menu4.png"
+    "gui/main_menu/main_menu2.png"
+    pause 0.15
+    "gui/main_menu/main_menu1.png"
+    pause 0.15
+    "gui/main_menu/main_menu5.png"
+    pause 0.15
+    "gui/main_menu/main_menu6.png"
+    pause 0.15
+    "gui/main_menu/main_menu7.png"
+    pause 0.15
+    "gui/main_menu/main_menu6.png"
+    pause 0.15
+    "gui/main_menu/main_menu5.png"
     pause 0.15
     repeat
 
