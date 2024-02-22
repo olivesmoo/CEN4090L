@@ -9,7 +9,6 @@ label start:
 
     e "Pleased to meet you, %(player_name)s!"
 
-
     scene blank
     call chapter1start
     scene blank
