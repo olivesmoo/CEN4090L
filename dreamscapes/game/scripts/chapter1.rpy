@@ -10,9 +10,20 @@ label chapter1start:
     e "Muahahahaha"
 
     e "I have taken over the world!!!!"
-
+    menu:
+        "yes":
+            call yes # could also do jump
+        "no":
+            call nah
+    return
+    
+label yes:
     hide cat_wig
 
     show detective_cat
     f "eh?"
+    return
+
+label nah:
+    e "lol just a joke bruh"
     return
