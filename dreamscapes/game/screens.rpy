@@ -652,16 +652,16 @@ screen file_slots(title):
             order_reverse True
 
             ## The page name, which can be edited by clicking on a button.
-            button:
-                style "page_label"
+            # button:
+            #     style "page_label"
 
-                key_events True
-                xalign 0.5
-                action page_name_value.Toggle()
+            #     key_events True
+            #     xalign 0.5
+            #     action page_name_value.Toggle()
 
-                input:
-                    style "page_label_text"
-                    value page_name_value
+            #     input:
+            #         style "page_label_text"
+            #         value page_name_value
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
@@ -691,31 +691,31 @@ screen file_slots(title):
 
                         key "save_delete" action FileDelete(slot)
 
-            ## Buttons to access other pages.
+            # Buttons to access other pages.
             vbox:
                 style_prefix "page"
 
                 xalign 0.5
                 yalign 1.0
 
-                hbox:
-                    xalign 0.5
+                # hbox:
+                #     xalign 0.5
 
-                    spacing gui.page_spacing
+                #     spacing gui.page_spacing
 
-                    textbutton _("<") action FilePagePrevious()
+                #     textbutton _("<") action FilePagePrevious()
 
-                    if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
+                #     if config.has_autosave:
+                #         textbutton _("{#auto_page}A") action FilePage("auto")
 
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                #     if config.has_quicksave:
+                #         textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                    ## range(1, 10) gives the numbers from 1 to 9.
-                    for page in range(1, 10):
-                        textbutton "[page]" action FilePage(page)
+                #     ## range(1, 10) gives the numbers from 1 to 9.
+                #     for page in range(1, 10):
+                #         textbutton "[page]" action FilePage(page)
 
-                    textbutton _(">") action FilePageNext()
+                #     textbutton _(">") action FilePageNext()
 
                 if config.has_sync:
                     if CurrentScreenName() == "save":
