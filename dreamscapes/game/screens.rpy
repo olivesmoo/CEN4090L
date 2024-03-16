@@ -291,14 +291,66 @@ screen navigation():
         style_prefix "navigation"
 
         #xpos gui.navigation_xpos
-        xalign 0.5
-        yalign 0.9
+        if main_menu:
+            xalign 0.5
+            yalign 0.9
+        else:
+            xpos gui.navigation_xpos
+            yalign 0.5
 
         spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start") action [SetVariable("current_checkpoint", 'start'), Start()]
+            
+            textbutton _("Chapters") action ShowMenu("chapters")
+
+        else:
+            textbutton _("History") action ShowMenu("history")
+
+            textbutton _("Save") action ShowMenu("save")
+
+        textbutton _("Load") action ShowMenu("load")
+
+
+        textbutton _("Preferences") action ShowMenu("preferences")
+
+        if _in_replay:
+
+            textbutton _("End Replay") action EndReplay(confirm=True)
+
+        elif not main_menu:
+
+            textbutton _("Main Menu") action MainMenu()
+
+        # textbutton _("About") action ShowMenu("about")
+
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+
+            ## Help isn't necessary or relevant to mobile devices.
+            textbutton _("Help") action ShowMenu("help")
+
+        if renpy.variant("pc"):
+
+            ## The quit button is banned on iOS and unnecessary on Android and
+            ## Web.
+            textbutton _("Quit") action Quit(confirm=not main_menu)
+
+screen game_navigation():
+
+    vbox:
+        style_prefix "navigation"
+
+        xpos gui.navigation_xpos
+        yalign 0.5
+
+        spacing gui.navigation_spacing
+
+        if main_menu:
+
+            textbutton _("Start") action [SetVariable("current_checkpoint", 'start'), Start()]
+            textbutton _("Chapters") action ShowMenu("chapters")
 
         else:
 
@@ -307,6 +359,7 @@ screen navigation():
             textbutton _("Save") action ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
+
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -330,7 +383,6 @@ screen navigation():
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
             textbutton _("Quit") action Quit(confirm=not main_menu)
-
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -469,7 +521,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
                     transclude
 
-    use navigation
+    use game_navigation
 
     textbutton _("Return"):
         style "return_button"
@@ -594,6 +646,28 @@ screen load():
 
     use file_slots(_("Load"))
 
+screen chapters():
+    tag menu
+    use chapter_menu
+
+# Define a screen for the load menu
+screen chapter_menu:
+    use game_menu(_("Chapters"))
+    vbox:        
+        # Python code to dynamically create buttons for specific checkpoints or chapters
+        python:
+            checkpoints = [
+                ("Chapter 1", "chapter1start"),
+                ("Chapter 2", "chapter2start"),
+                ("Chapter 3", "chapter3start"),
+                ("Chapter 4", "chapter4start"),
+                ("Chapter 5", "chapter5start")
+            ]
+        
+        # Loop through the checkpoints list and create buttons for visited checkpoints
+        for checkpoint_name, checkpoint_label in checkpoints:
+            if is_checkpoint_visited(checkpoint_label):
+                textbutton checkpoint_name action [SetVariable("current_checkpoint", checkpoint_label), Start()]
 
 screen file_slots(title):
 
@@ -608,16 +682,16 @@ screen file_slots(title):
             order_reverse True
 
             ## The page name, which can be edited by clicking on a button.
-            button:
-                style "page_label"
+            # button:
+            #     style "page_label"
 
-                key_events True
-                xalign 0.5
-                action page_name_value.Toggle()
+            #     key_events True
+            #     xalign 0.5
+            #     action page_name_value.Toggle()
 
-                input:
-                    style "page_label_text"
-                    value page_name_value
+            #     input:
+            #         style "page_label_text"
+            #         value page_name_value
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
@@ -647,31 +721,31 @@ screen file_slots(title):
 
                         key "save_delete" action FileDelete(slot)
 
-            ## Buttons to access other pages.
+            # Buttons to access other pages.
             vbox:
                 style_prefix "page"
 
                 xalign 0.5
                 yalign 1.0
 
-                hbox:
-                    xalign 0.5
+                # hbox:
+                #     xalign 0.5
 
-                    spacing gui.page_spacing
+                #     spacing gui.page_spacing
 
-                    textbutton _("<") action FilePagePrevious()
+                #     textbutton _("<") action FilePagePrevious()
 
-                    if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
+                #     if config.has_autosave:
+                #         textbutton _("{#auto_page}A") action FilePage("auto")
 
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                #     if config.has_quicksave:
+                #         textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                    ## range(1, 10) gives the numbers from 1 to 9.
-                    for page in range(1, 10):
-                        textbutton "[page]" action FilePage(page)
+                #     ## range(1, 10) gives the numbers from 1 to 9.
+                #     for page in range(1, 10):
+                #         textbutton "[page]" action FilePage(page)
 
-                    textbutton _(">") action FilePageNext()
+                #     textbutton _(">") action FilePageNext()
 
                 if config.has_sync:
                     if CurrentScreenName() == "save":
