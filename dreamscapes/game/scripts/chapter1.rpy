@@ -1,7 +1,7 @@
 define e = Character("Cat")
 define f = Character("Catective")
 
-label chapter1start:
+label chap1:
     "We're in chapter 1!!"
     scene bg_test # shows background
 

@@ -291,22 +291,28 @@ screen navigation():
         style_prefix "navigation"
 
         #xpos gui.navigation_xpos
-        xalign 0.5
-        yalign 0.9
+        if main_menu:
+            xalign 0.5
+            yalign 0.9
+        else:
+            xpos gui.navigation_xpos
+            yalign 0.5
 
         spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start") action [SetVariable("current_checkpoint", 'start'), Start()]
+            
+            textbutton _("Chapters") action ShowMenu("chapters")
 
         else:
-
             textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
+
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -318,7 +324,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        # textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -343,7 +349,8 @@ screen game_navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start") action [SetVariable("current_checkpoint", 'start'), Start()]
+            textbutton _("Chapters") action ShowMenu("chapters")
 
         else:
 
@@ -352,6 +359,7 @@ screen game_navigation():
             textbutton _("Save") action ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
+
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -638,6 +646,28 @@ screen load():
 
     use file_slots(_("Load"))
 
+screen chapters():
+    tag menu
+    use chapter_menu
+
+# Define a screen for the load menu
+screen chapter_menu:
+    use game_menu(_("Chapters"))
+    vbox:        
+        # Python code to dynamically create buttons for specific checkpoints or chapters
+        python:
+            checkpoints = [
+                ("Chapter 1", "chapter1start"),
+                ("Chapter 2", "chapter2start"),
+                ("Chapter 3", "chapter3start"),
+                ("Chapter 4", "chapter4start"),
+                ("Chapter 5", "chapter5start")
+            ]
+        
+        # Loop through the checkpoints list and create buttons for visited checkpoints
+        for checkpoint_name, checkpoint_label in checkpoints:
+            if is_checkpoint_visited(checkpoint_label):
+                textbutton checkpoint_name action [SetVariable("current_checkpoint", checkpoint_label), Start()]
 
 screen file_slots(title):
 
