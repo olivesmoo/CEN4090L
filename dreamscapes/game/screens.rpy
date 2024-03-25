@@ -653,7 +653,9 @@ screen chapters():
 # Define a screen for the load menu
 screen chapter_menu:
     use game_menu(_("Chapters"))
-    vbox:        
+    vbox:
+        xalign 0.5
+        yalign 0.2
         # Python code to dynamically create buttons for specific checkpoints or chapters
         python:
             checkpoints = [
@@ -668,6 +670,7 @@ screen chapter_menu:
         for checkpoint_name, checkpoint_label in checkpoints:
             if is_checkpoint_visited(checkpoint_label):
                 textbutton checkpoint_name action [SetVariable("current_checkpoint", checkpoint_label), Start()]
+
 
 screen file_slots(title):
 
