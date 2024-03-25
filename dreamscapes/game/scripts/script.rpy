@@ -1,16 +1,17 @@
 ﻿# Define a dictionary to store the visited status of checkpoints
 init python:
-    visited_checkpoints = {}
+    if not persistent.visited_checkpoints:
+        persistent.visited_checkpoints = {}
+
     current_checkpoint = 'start'
+
     # Function to mark a checkpoint as visited
     def mark_checkpoint_visited(checkpoint_label):
-        global visited_checkpoints
-        visited_checkpoints[checkpoint_label] = True
+        persistent.visited_checkpoints[checkpoint_label] = True
 
     # Function to check if a checkpoint has been visited
     def is_checkpoint_visited(checkpoint_label):
-        global visited_checkpoints
-        return visited_checkpoints.get(checkpoint_label, False)
+        return persistent.visited_checkpoints.get(checkpoint_label, False)
 
 # The game starts here.
 label start:
