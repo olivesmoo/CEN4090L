@@ -7,4 +7,4 @@ File "game/scripts/chapter4.rpy", line 12: Line is indented, but the preceding d
     ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Wed Mar 27 18:49:16 2024
+Wed Mar 27 18:50:44 2024
