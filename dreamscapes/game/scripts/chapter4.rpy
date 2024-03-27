@@ -20,6 +20,8 @@ label chap4:
 
             "Venture out into the city.":
                 call venture_city
+    return
+
 
 label search_alley:
     scene alley_way
@@ -28,6 +30,7 @@ label search_alley:
     carl "Hey, you woke me up!"
     pawzza "I'm sorry, I'm just starved and don't know what to do."
     # Continue the storyline for searching in the alley...
+    return
 
 label venture_city:
     scene city_streets
@@ -35,7 +38,5 @@ label venture_city:
 
     pawzza "I decided to brave the busy city streets in search of food."
     # Continue the storyline for venturing into the city...
-
-
     return
 
