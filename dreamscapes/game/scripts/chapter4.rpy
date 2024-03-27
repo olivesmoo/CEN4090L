@@ -16,12 +16,12 @@ label chap4:
     menu:
         "What should I do?":
             "Search for food in the alley.":
-                jump search_alley
+                call search_alley
 
             "Venture out into the city.":
-                jump venture_city
+                call venture_city
 
-    label search_alley:
+label search_alley:
     scene alley_way
     with fade
 

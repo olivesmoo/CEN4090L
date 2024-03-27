@@ -1,4 +1,4 @@
-2024-03-27 22:56:40 UTC
+2024-03-27 23:02:24 UTC
 macOS-13.5-arm64-arm-64bit
 Ren'Py 8.2.0.24012702
 
@@ -8,9 +8,13 @@ Loading script took 0.21s
 Loading save slot metadata took 0.05s
 Loading persistent took 0.00s
 
-File "game/scripts/chapter4.rpy", line 12: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    pawzza "Here I am, in an unfamiliar alley, curious hungry and all alone."
-    ^
+File "game/scripts/chapter4.rpy", line 18: expected statement.
+    "Search for food in the alley.":
+                                   ^
+
+File "game/scripts/chapter4.rpy", line 21: expected statement.
+    "Venture out into the city.":
+                                ^
 DPI scale factor: 1.000000
 Interface start took 0.33s
 

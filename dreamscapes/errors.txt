@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/scripts/chapter4.rpy", line 12: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    pawzza "Here I am, in an unfamiliar alley, curious hungry and all alone."
-    ^
+File "game/scripts/chapter4.rpy", line 18: expected statement.
+    "Search for food in the alley.":
+                                   ^
+
+File "game/scripts/chapter4.rpy", line 21: expected statement.
+    "Venture out into the city.":
+                                ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Wed Mar 27 18:56:40 2024
+Wed Mar 27 19:02:25 2024
