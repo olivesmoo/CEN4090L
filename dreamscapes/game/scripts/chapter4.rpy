@@ -1,15 +1,13 @@
-label chap4:
-    "We're in chapter 4!!"
-    return
-
-    scene alley_way
-    with fade
-
 define pawzza = Character("pawzza")
 define carl = Character("carl")
 
+label chap4:
+    "We're in chapter 4!!"
+    
+    scene alley_way
+    with fade
 
-    pawzza "Here I am, in an unfamiliar alley, curious hungry and all alone."
+    pawzza "Here I am, in an unfamiliar alley, curious, hungry, and all alone."
     show pawzza at center
     pause 2.0 
     hide pawzza
@@ -23,7 +21,7 @@ define carl = Character("carl")
             "Venture out into the city.":
                 jump venture_city
 
-label search_alley:
+    label search_alley:
     scene alley_way
     with fade
 
@@ -37,3 +35,7 @@ label venture_city:
 
     pawzza "I decided to brave the busy city streets in search of food."
     # Continue the storyline for venturing into the city...
+
+
+    return
+
