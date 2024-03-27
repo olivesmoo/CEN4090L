@@ -16,7 +16,7 @@ label chap4:
 
         "Venture out into the city.":  
             call venture_city  
-r   eturn
+    return
 
 label search_alley:
     scene alley_way

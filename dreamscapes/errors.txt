@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/chapter4.rpy", line 18: expected statement.
-    "Search for food in the alley.":
-                                   ^
-
-File "game/scripts/chapter4.rpy", line 21: expected statement.
-    "Venture out into the city.":
-                                ^
+File "game/scripts/chapter4.rpy", line 19: expected statement.
+    r   eturn
+             ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Wed Mar 27 19:16:16 2024
+Wed Mar 27 19:26:39 2024
