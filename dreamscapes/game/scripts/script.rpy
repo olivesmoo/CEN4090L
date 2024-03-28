@@ -1,4 +1,6 @@
-﻿# Define a dictionary to store the visited status of checkpoints
+﻿$ renpy.include("globals.rpy")
+
+# Define a dictionary to store the visited status of checkpoints
 init python:
     visited_checkpoints = {}
     current_checkpoint = 'start'
@@ -45,9 +47,10 @@ label chapter2start:
     python:
         mark_checkpoint_visited("chapter2start")
     call chap2pro
-    call chap2d1
-    call chap2d2
-    call chap2d3
+    if game_over == False:
+        call chap2d1
+        call chap2d2
+        call chap2d3
     scene blank
     jump chapter3start
 
