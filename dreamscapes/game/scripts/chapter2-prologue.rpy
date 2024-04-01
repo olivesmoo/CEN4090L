@@ -48,7 +48,7 @@ label chap2pro:
     d "Look man… I've had a long shift and an even longer night. I'm not feeling it right now, so can you please move aside so that I can leave?"
 
     menu drunk:
-        # show cat_wig
+        show cat_wig
         "Even through the muddled haze that is your mind, you can't help but notice the strain in her voice and the droop of her shoulders, as if she is holding the weight of the world and trying not to crumble under its pressure."
         "Of course ma'am. Sorry again.":
             call sorry
