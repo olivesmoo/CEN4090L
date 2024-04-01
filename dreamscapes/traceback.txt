@@ -1,81 +1,44 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/screens.rpy", line 635, in execute
-    screen load():
-  File "game/screens.rpy", line 635, in execute
-    screen load():
-  File "game/screens.rpy", line 640, in execute
-    use load_menu
-  File "game/screens.rpy", line 643, in execute
-    screen load_menu:
-  File "game/screens.rpy", line 643, in execute
-    screen load_menu:
-  File "game/screens.rpy", line 644, in execute
-    vbox:
-  File "game/screens.rpy", line 657, in execute
-    for checkpoint_name, checkpoint_label in checkpoints:
-  File "game/screens.rpy", line 658, in execute
-    if visited(checkpoint_label):
-  File "game/screens.rpy", line 658, in <module>
-    if visited(checkpoint_label):
-NameError: name 'visited' is not defined
+After initialization, but before game start.
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "game/screens.rpy", line 1694, in <module>
+    background Frame((255, 255, 255, 150))
+Exception: Not a displayable: (255, 255, 255, 150)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  [Previous line repeated 1 more time]
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/screen.py", line 476, in visit_all
-    callback(self)
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/screen.py", line 487, in per_interact
-    self.update()
-  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/screen.py", line 680, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 635, in execute
-    screen load():
-  File "game/screens.rpy", line 635, in execute
-    screen load():
-  File "game/screens.rpy", line 640, in execute
-    use load_menu
-  File "game/screens.rpy", line 643, in execute
-    screen load_menu:
-  File "game/screens.rpy", line 643, in execute
-    screen load_menu:
-  File "game/screens.rpy", line 644, in execute
-    vbox:
-  File "game/screens.rpy", line 657, in execute
-    for checkpoint_name, checkpoint_label in checkpoints:
-  File "game/screens.rpy", line 658, in execute
-    if visited(checkpoint_label):
-  File "game/screens.rpy", line 658, in <module>
-    if visited(checkpoint_label):
-NameError: name 'visited' is not defined
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/bootstrap.py", line 275, in bootstrap
+    renpy.main.main()
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/main.py", line 670, in main
+    run(restart)
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/main.py", line 74, in run
+    renpy.translation.init_translation()
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/translation/__init__.py", line 593, in init_translation
+    renpy.store._init_language() # type: ignore
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/translation/__init__.py", line 685, in change_language
+    new_change_language(tl, language)
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/translation/__init__.py", line 639, in new_change_language
+    i.apply()
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/ast.py", line 2974, in apply
+    value = renpy.python.py_eval(expr)
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/screens.rpy", line 1694, in <module>
+    background Frame((255, 255, 255, 150))
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/display/imagelike.py", line 210, in __init__
+    self.image = renpy.easy.displayable(image)
+  File "/Users/oliviamei/Downloads/renpy-8.1.3-sdk/renpy/easy.py", line 145, in displayable
+    raise Exception("Not a displayable: %r" % (d,))
+Exception: Not a displayable: (255, 255, 255, 150)
 
-macOS-14.3.1-arm64-arm-64bit arm64
+macOS-14.4.1-arm64-arm-64bit arm64
 Ren'Py 8.1.3.23091805
 dreamscapes 1.0
-Sat Mar 16 02:14:05 2024
+Mon Apr  1 01:52:22 2024

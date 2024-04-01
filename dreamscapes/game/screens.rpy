@@ -1182,6 +1182,36 @@ style help_label_text:
 ## Additional screens
 ################################################################################
 
+## Chapter Title screen ##############################################################
+##
+## Marks the beginning of a chapter.
+##
+screen chapter_title(chap_num):
+    modal True
+    add "images/blank.png"
+
+    vbox:
+        xalign 0.5
+        yalign 0.5
+        
+        text chap_num size 128 xalign 0.5 font "BedPillow.otf"
+        # textbutton "Continue" action Return()
+        # textbutton "Main Menu" action MainMenu()
+
+        hbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 40  # Adjust the spacing between the buttons
+            
+            frame:
+                # style "ch_title_box"  # Apply a style to the frame for the "Continue" button
+                textbutton "Continue" action Return()
+            
+            frame:
+                # style "ch_title_box"  # Apply a style to the frame for the "Main Menu" button
+                textbutton "Main Menu" action MainMenu()
+
+
 
 ## Confirm screen ##############################################################
 ##
