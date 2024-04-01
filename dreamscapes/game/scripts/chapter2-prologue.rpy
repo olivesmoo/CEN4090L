@@ -48,6 +48,7 @@ label chap2pro:
     d "Look man… I've had a long shift and an even longer night. I'm not feeling it right now, so can you please move aside so that I can leave?"
 
     menu drunk:
+        show cat_wig
         "Even through the muddled haze that is your mind, you can't help but notice the strain in her voice and the droop of her shoulders, as if she is holding the weight of the world and trying not to crumble under its pressure."
         "Of course ma'am. Sorry again.":
             call sorry
@@ -101,7 +102,7 @@ label law:
     return
 
 label pay:
-    d "...Be so fucking for real right now."
+    d "...Be so f******* for real right now."
 
     "The DJ has a dangerous glint in her eyes, sparking electric over her sunglasses. It wouldn’t take a genius to see that she's very obviously displeased by this."
     "Her cool glare screams “Are you really that desperate for money?” It reminds you of…well…you promised yourself you wouldn't think of him..."
