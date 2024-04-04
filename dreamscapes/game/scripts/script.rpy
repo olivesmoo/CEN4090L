@@ -42,7 +42,7 @@ label chapter1start:
         mark_checkpoint_visited("chapter1start")
     call chap1
     scene blank
-    jump chapter3start  #Need to change this back to 2
+    jump chapter2start
 
 label chapter2start:
     python:
