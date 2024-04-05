@@ -61,7 +61,7 @@ label chapter2start:
 label chapter3start:
     python:
         mark_checkpoint_visited("chapter3start")
-    call screen chapter_title("Chapter 3")
+    call screen chapter_title("Chapter 3: Cat Warehouse")
     call chap3
     scene blank
     jump chapter4start
