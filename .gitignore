@@ -1,2 +1,4 @@
 *.rpyc
 .DS_Store
+*.txt
+*.save
