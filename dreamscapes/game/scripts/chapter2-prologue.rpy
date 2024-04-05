@@ -1,6 +1,5 @@
 define c = Character("Catective")
 define d = Character("DJ")
-
 label chap2pro:
     "We're in chapter 2!!"
 
@@ -72,7 +71,6 @@ label sorry:
     show detective_cat_sad
     "The Catective makes a disgruntled sound before coughing up a crumpled 5 dollar bill. Sobered from a weeping wallet, the Catective hobbles home and collapses upon an unmade bed, lapsing into a dreamless slumber."
     hide detective_cat_sad
-
     return
 
 label law:
@@ -84,24 +82,23 @@ label law:
     hide detective_cat_angry
 
     show cat_wig
-    d "Damn. F*** the police, and f*** this sh*t."
+    d "Damn. Fuck the police, and fuck this shit."
     hide cat_wig
 
-    "*Cue Pokemon battle but for now he loses sadly*"
+    "*Cue Pokemon battle but for now he gets the shit slapped out of him*"
 
     show cat_wig
-    d "Not so hot sh*t now, huh “officer”? Have a good f****** night, d*** head."
+    d "Not so hot shit now, huh “officer”? Have a good fucking night, dick head."
     hide cat_wig
 
     "The DJ promptly hurries out, head held high as the crowd parts for her after the decidedly one-sided brawl. The Catective, pride decimated, literally melts into a puddle and dies of embarrassment, broken and defeated by a kitten a third of his size."
 
     "Game Over :("
 
-    $ game_over = True
     return
 
 label pay:
-    d "...Be so f******* for real right now."
+    d "...Be so fucking for real right now."
 
     "The DJ has a dangerous glint in her eyes, sparking electric over her sunglasses. It wouldn’t take a genius to see that she's very obviously displeased by this."
     "Her cool glare screams “Are you really that desperate for money?” It reminds you of…well…you promised yourself you wouldn't think of him..."

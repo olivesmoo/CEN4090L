@@ -249,22 +249,12 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
-
-## This code ensures that the quick_menu screen is displayed in-game, whenever
-## the player has not explicitly hidden the interface.
-init python:
-    config.overlay_screens.append("quick_menu")
-
-default quick_menu = True
 
 style quick_button is default
 style quick_button_text is button_text
@@ -348,10 +338,7 @@ screen game_navigation():
         spacing gui.navigation_spacing
 
         if main_menu:
-
-            textbutton _("Start") action [SetVariable("current_checkpoint", 'start'), Start()]
             textbutton _("Chapters") action ShowMenu("chapters")
-
         else:
 
             textbutton _("History") action ShowMenu("history")
@@ -359,7 +346,6 @@ screen game_navigation():
             textbutton _("Save") action ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
-
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -652,29 +638,32 @@ screen chapters():
 
 
 screen chapter_menu:
-    vbox:
-        xalign 0.5
-        yalign 0.2
-        # Python code to dynamically create buttons for specific checkpoints or chapters
-        python:
-            checkpoints = [
-                ("Chapter 1", "chapter1start"),
-                ("Chapter 2", "chapter2start"),
-                ("Chapter 3", "chapter3start"),
-                ("Chapter 4", "chapter4start"),
-                ("Chapter 5", "chapter5start")
-            ]
-        
-        # Loop through the checkpoints list and create buttons for visited checkpoints
-        for checkpoint_name, checkpoint_label in checkpoints:
+    use game_menu("Chapters"):
+        vbox:
+            xalign 0.5
+            yalign 0.5
+            python:
+                checkpoints = [
+                    ("Chapter 1", "chapter1start"),
+                    ("Chapter 2", "chapter2start"),
+                    ("Chapter 3", "chapter3start"),
+                    ("Chapter 4", "chapter4start"),
+                    ("Chapter 5", "chapter5start"),
+                    ("Last Chapter", "endingstart")
+                ]
             
-            if is_checkpoint_visited(checkpoint_label):
-                textbutton checkpoint_name action [SetVariable("current_checkpoint", checkpoint_label), Start()]
-            else:
-                text checkpoint_name color "#808080" xalign 0.5
-    textbutton _("Return"):
-        style "return_button"
-        action Return()
+            grid 3 2:
+                ypos 100
+                xpos 0
+                spacing gui.slot_spacing
+                for i, (checkpoint_name, checkpoint_label) in zip(range(6), checkpoints):
+                    if is_checkpoint_visited(checkpoint_label):
+                        imagebutton:
+                            idle "images/chapters/ch{}.png".format(i+1)
+                            hover "images/chapters/ch{}_highlight.png".format(i+1)
+                            action [SetVariable("current_checkpoint", checkpoint_label), Start()]
+                    else:
+                        image "images/chapters/lock.png"
 
 screen file_slots(title):
 
