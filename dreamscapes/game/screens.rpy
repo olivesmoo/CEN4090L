@@ -641,27 +641,29 @@ screen chapter_menu:
     use game_menu("Chapters"):
         vbox:
             xalign 0.5
-            yalign 0.2
-            # Python code to dynamically create buttons for specific checkpoints or chapters
+            yalign 0.5
             python:
                 checkpoints = [
                     ("Chapter 1", "chapter1start"),
                     ("Chapter 2", "chapter2start"),
                     ("Chapter 3", "chapter3start"),
                     ("Chapter 4", "chapter4start"),
-                    ("Chapter 5", "chapter5start")
+                    ("Chapter 5", "chapter5start"),
+                    ("Last Chapter", "endingstart")
                 ]
             
-            # Loop through the checkpoints list and create buttons for visited checkpoints
-            for checkpoint_name, checkpoint_label in checkpoints:
-                
-                if is_checkpoint_visited(checkpoint_label):
-                    textbutton checkpoint_name action [SetVariable("current_checkpoint", checkpoint_label), Start()]
-                else:
-                    text checkpoint_name color "#808080" xalign 0.5
-        textbutton _("Return"):
-            style "return_button"
-            action Return()
+            grid 3 2:
+                ypos 100
+                xpos 0
+                spacing gui.slot_spacing
+                for i, (checkpoint_name, checkpoint_label) in zip(range(6), checkpoints):
+                    if is_checkpoint_visited(checkpoint_label):
+                        imagebutton:
+                            idle "images/chapters/ch{}.png".format(i+1)
+                            hover "images/chapters/ch{}_highlight.png".format(i+1)
+                            action [SetVariable("current_checkpoint", checkpoint_label), Start()]
+                    else:
+                        image "images/chapters/lock.png"
 
 screen file_slots(title):
 
