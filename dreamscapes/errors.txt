@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 661: 'idle' is not a keyword argument or valid child of the for statement.
-    idle "images/chapters/ch{}.png".format(i+1)
-        ^
+The label chapter3start is defined twice, at File "game/scripts/chapter3.rpy", line 3:
+label chapter3start:
+and File "game/scripts/script.rpy", line 61:
+label chapter3start:
 
-Ren'Py Version: Ren'Py 8.1.3.23091805
-Thu Apr  4 20:18:27 2024
+
+Ren'Py Version: Ren'Py 8.2.0.24012702
+Thu Apr  4 21:06:30 2024
