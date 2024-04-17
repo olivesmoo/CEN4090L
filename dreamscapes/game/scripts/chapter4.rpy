@@ -8,8 +8,8 @@ image city_streets = "city_streets.jpg"
 image quiet_park = "park.jpeg" 
 image busy_supermarket = "supermarket.jpeg" 
 
-# Starting label
-label start:
+label ch4:
+
     scene alley_way
     "It's a cold night in Meow York. Pawzza, a bright white cat with blue eyes, has been separated from her owner and is all alone for the first time in her life."
     show pawzza at center
