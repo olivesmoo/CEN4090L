@@ -1,86 +1,50 @@
-define pawzza = Character("pawzza")
-define carl = Character("carl")
+define pawzza = Character("Pawzza")
+define carl = Character("Carl")
 
-label chap4:
-    "We're in chapter 4!!"
+label start:
+
     scene alley_way
+    "It's a cold night in Meow York. Pawzza, a bright white cat with blue eyes, has been separated from her owner and is all alone for the first time in her life."
 
     show pawzza at center
-    pawzza "Here I am, in an unfamiliar alley, curious, hungry, and all alone."
-    pause 2.0 
-    hide pawzza
+    pawzza "How did this happen?! I was just with her, and now she's gone, and I can't remember a thing."
+    pawzza "Oh no, I'm starved. What should I do?"
 
     menu:
-        "Search for food in the alley.": 
-            call search_alley  
-
-        "Venture out into the city.":  
-            call venture_city  
-    return
+        "Search for food in the alley.":
+            jump search_alley
+        "Venture out into the city.":
+            jump venture_city
 
 label search_alley:
     scene alley_way
-    show carl 
+    show carl
     carl "Hey, you woke me up!"
     hide carl
 
-    show pawzza 
-    pawzza "I'm so so sorry, I'm just starved and I really don't know what to do."
-    # Continue the storyline for searching in the alley...
-    return
+    show pawzza
+    pawzza "AHHHHHHHHHHHHHHH!!!!!!!!!!!!!"
+
+    show carl
+    carl "Quiet down, little one. I just woke up."
+    pawzza "I didn't even see you in there!"
+
+    carl "It seems you are new here. I can show you around if you want."
+    pawzza "Please, I could really use some help."
+
+    carl "Alright, follow me. Let's find something to eat first."
+    hide pawzza
+    hide carl
+    jump explore_park
 
 label venture_city:
     scene city_streets
     show pawzza at center
     pawzza "Let's hit the streets and see what adventures await me!"
+
     menu:
         "Explore the quiet park.":
-            call explore_park
+            jump explore_park
         "Enter the busy supermarket.":
-            call explore_supermarket
-
-label explore_park:
-    scene park
-    show pawzza at center
-    pawzza "This park seems peaceful, maybe I can find something to eat here."
-    menu:
-        "Go to the pond.":
-            call pond_adventure
-        "Climb up a tree.":
-            call tree_climb
-
-label pond_adventure:
-    scene pond
-    show pawzza at center
-    pawzza "Look at those ducks! I hope there's no trouble here."
-    # Outcome with dog chase described here
-    return
-
-label tree_climb:
-    scene tree
-    show pawzza at center
-    pawzza "A bird's nest! There's my meal."
-    # Outcome with finding eggs described here
-    return
-
-label explore_supermarket:
-    scene supermarket
-    show pawzza at center
-    pawzza "I need to be sneaky in here."
-    menu:
-        "Try to steal a fish.":
-            call steal_fish
-        "Beg a human for food.":
-            call beg_human
-
-label steal_fish:
-    # Outcome of successful fish theft
-    return
-
-label beg_human:
-    # Outcome of being caught
-    return
-
-# Add additional labels and scenes as necessary for the interactions with the street performers or the wise old cat.
-
+            jump explore_supermarket
 
