@@ -70,7 +70,7 @@ label chapter4start:
     python:
         mark_checkpoint_visited("chapter4start")
     call screen chapter_title("Chapter 4")
-    call chap4
+    call Chap4
     scene blank
     jump chapter5start
 
