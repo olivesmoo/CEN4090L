@@ -1,4 +1,4 @@
-#definitions
+# definitions
 define pawzza = Character("Pawzza")
 define carl = Character("Carl")
 image alley_way = "alley_way.png"
@@ -19,7 +19,6 @@ label chap4:
         "Venture out into the city.":
             jump venture_city
 
-    
 # Alley search
 label search_alley:
     scene alley_way
@@ -56,3 +55,4 @@ label venture_city:
             jump explore_supermarket
 
     return
+
