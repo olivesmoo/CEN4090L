@@ -1,15 +1,12 @@
-# Character definitions
+#definitions
 define pawzza = Character("Pawzza")
 define carl = Character("Carl")
-
-# Scene definitions (make sure these image files exist in your game's directory)
 image alley_way = "alley_way.png"
-image city_streets = "city_streets.jpg"
+image city_streets = "city_streets.png"
 image quiet_park = "park.jpeg" 
 image busy_supermarket = "supermarket.jpeg" 
 
-label ch4:
-
+label chap4:
     scene alley_way
     "It's a cold night in Meow York. Pawzza, a bright white cat with blue eyes, has been separated from her owner and is all alone for the first time in her life."
     show pawzza at center
@@ -22,7 +19,8 @@ label ch4:
         "Venture out into the city.":
             jump venture_city
 
-# Alley search interaction
+    
+# Alley search
 label search_alley:
     scene alley_way
     show carl at left
@@ -58,18 +56,3 @@ label venture_city:
             jump explore_supermarket
 
     return
-
-# Park exploration
-label explore_park:
-    scene quiet_park
-    show pawzza at center
-    pawzza "This park is peaceful. Maybe I can find some friendly faces here."
-    return
-
-# Supermarket exploration
-label explore_supermarket:
-    scene busy_supermarket
-    show pawzza at center
-    pawzza "Wow, this place is bustling! Let's see if I can find something to eat."
-    return
-
