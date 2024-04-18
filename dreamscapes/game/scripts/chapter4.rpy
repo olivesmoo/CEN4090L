@@ -2,13 +2,13 @@
 define pawzza = Character("Pawzza")
 define carl = Character("Carl")
 image alley_way = "alley_way.png"
-image city_streets = "city_streets.png"
+image city_streets = "city_street.png"
 image quiet_park = "park.jpeg" 
 image busy_supermarket = "supermarket.jpeg" 
 
-label chap4:
+label Chap4:
     scene alley_way
-    "It's a cold night in Meow York. Pawzza, a bright white cat with blue eyes, has been separated from her owner and is all alone for the first time in her life."
+
     show pawzza at center
     pawzza "How did this happen?! I was just with her, and now she's gone, and I can't remember a thing."
     pawzza "Oh no, I'm starved. What should I do?"
