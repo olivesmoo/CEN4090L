@@ -1,10 +1,10 @@
 # definitions
 define pawzza = Character("Pawzza")
 define carl = Character("Carl")
-image alley_way = "alley_way.png"
-image city_streets = "city_street.png"
-image quiet_park = "park.jpeg" 
-image busy_supermarket = "supermarket.jpeg" 
+image alley_way = "images/ch4 bgs/alley_way.png"
+image city_streets = "images/ch4 bgs/city_street.png"
+image quiet_park = "images/ch4 bgs/park.jpeg" 
+image busy_supermarket = "images/ch4 bgs/supermarket.jpeg" 
 
 label Chap4:
     scene alley_way
