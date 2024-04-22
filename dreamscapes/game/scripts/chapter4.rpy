@@ -6,8 +6,8 @@ image alley_way = "images/ch4 bgs/alley_way.jpeg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
-image busy_supermarket = "images/ch4 bgs/park_pond.jpeg"
-image busy_supermarket = "images/ch4 bgs/park_tree.jpeg"
+image pond = "images/ch4 bgs/park_pond.jpeg"
+image tree = "images/ch4 bgs/park_tree.jpeg"
 
 label Chap4:
     scene alley_way
