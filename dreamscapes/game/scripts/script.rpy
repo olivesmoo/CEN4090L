@@ -2,8 +2,11 @@ $ renpy.include("globals.rpy")
 
 # Define a dictionary to store the visited status of checkpoints
 init python:
+    # del persistent.player_name
     if not persistent.visited_checkpoints:
         persistent.visited_checkpoints = {}
+    if not persistent.completed_chapters:
+        persistent.completed_chapters = {1: False, 2: False, 3: False, 4: False, 5: False}
 
     current_checkpoint = 'start'
 
@@ -15,17 +18,25 @@ init python:
     def is_checkpoint_visited(checkpoint_label):
         return persistent.visited_checkpoints.get(checkpoint_label, False)
 
+    def chapter_success(chapter, success): # ex: (2, False)
+        if success == True:
+            persistent.completed_chapters[chapter] = True
+    
+    def completed_all():
+        return all(persistent.completed_chapters[2:6])
+
 # The game starts here.
 label start:
     if current_checkpoint == 'start':
         "Welcome to the dream world."
-        $ player_name = renpy.input("What is your name?")
-        $ player_name = player_name.strip()
-
-        if player_name == "":
-            $ player_name="Nameless One"
-
-        e "Pleased to meet you, %(player_name)s!"
+        if not persistent.player_name:
+            $ persistent.player_name = renpy.input("What is your name?")
+            $ persistent.player_name = persistent.player_name.strip()
+            if persistent.player_name == "":
+                $ persistent.player_name="Nameless One"
+            e "Pleased to meet you, %(persistent.player_name)s!"
+        else:
+            e "Welcome back, %(persistent.player_name)s"
         scene blank
     elif current_checkpoint == 'chapter1start':
         jump chapter1start
