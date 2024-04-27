@@ -2,11 +2,8 @@ $ renpy.include("globals.rpy")
 
 # Define a dictionary to store the visited status of checkpoints
 init python:
-    config.has_autosave = False
-    config.has_quicksave = False
-    config.autosave_on_quit = False
-    config.autosave_on_choice = False
-    
+    # persistent._clear()
+    # del persistent.player_name
     if not persistent.visited_checkpoints:
         persistent.visited_checkpoints = {}
     if not persistent.completed_chapters:
@@ -38,9 +35,9 @@ label start:
             $ persistent.player_name = persistent.player_name.strip()
             if persistent.player_name == "":
                 $ persistent.player_name="Nameless One"
-            e "Pleased to meet you, %(persistent.player_name)s!"
+            e "Pleased to meet you, [persistent.player_name]!"
         else:
-            e "Welcome back, %(persistent.player_name)s"
+            e "Welcome back to the dream world, [persistent.player_name]"
         scene blank
     elif current_checkpoint == 'chapter1start':
         jump chapter1start
