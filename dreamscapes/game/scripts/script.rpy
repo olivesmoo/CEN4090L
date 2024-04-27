@@ -2,7 +2,11 @@ $ renpy.include("globals.rpy")
 
 # Define a dictionary to store the visited status of checkpoints
 init python:
-    # del persistent.player_name
+    config.has_autosave = False
+    config.has_quicksave = False
+    config.autosave_on_quit = False
+    config.autosave_on_choice = False
+    
     if not persistent.visited_checkpoints:
         persistent.visited_checkpoints = {}
     if not persistent.completed_chapters:
