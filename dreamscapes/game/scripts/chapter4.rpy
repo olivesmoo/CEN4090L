@@ -7,7 +7,6 @@ image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
 
-
 label Chap4:
     scene alley_way
     show pawzza at center
@@ -20,7 +19,6 @@ label Chap4:
         "Venture out into the city.":
             jump venture_city
 
-# Alley search
 label search_alley:
     scene alley_way
     show carl at left
@@ -45,7 +43,6 @@ label search_alley:
 
     return
 
-# City venture interaction
 label venture_city:
     scene city_streets
     show pawzza at center
@@ -53,9 +50,37 @@ label venture_city:
 
     menu:
         "Explore the quiet park.":
-            pawzza "I think I'll check out that quiet park."
-            return
+            jump explore_park
         "Enter the busy supermarket.":
-            pawzza "The supermarket seems like a good place to find food."
+            jump enter_supermarket
+
+label explore_park:
+    scene quiet_park
+    show pawzza at center
+    pawzza "This park is so peaceful compared to the noisy streets."
+
+    menu:
+        "Go through trash.":
+            pawzza "Maybe I can find something to eat in this trash can."
+            n "Pawzza digs into the trash and pulls out a half-eaten sandwich, which he devours hungrily."
+            carl "You've got a lot to learn, kitty. That'll put hair on your chest, if you don't get sick first!"
+            return
+
+        "Beg an old lady.":
+            n "An old woman sits on a bench, feeding pigeons."
+            pawzza "Let's try my luck with her."
+            pawzza "Meow! Meow!"
+            n "The old lady notices Pawzza and tosses him a piece of chicken."
+            return
+
+label enter_supermarket:
+    scene busy_supermarket
+    show pawzza at center
+    pawzza "So many smells and so much food!"
+    
+            n "Pawzza sneaks towards the meat aisle and snatches a sausage link."
+            n "As he turns to leave, a security guard spots him."
+            guard "Hey! No animals allowed here!"
+            pawzza "Meow! Meow! (I better run!)"
             return
 
