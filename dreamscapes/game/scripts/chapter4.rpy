@@ -77,10 +77,9 @@ label enter_supermarket:
     scene busy_supermarket
     show pawzza at center
     pawzza "So many smells and so much food!"
-    
-            n "Pawzza sneaks towards the meat aisle and snatches a sausage link."
-            n "As he turns to leave, a security guard spots him."
-            guard "Hey! No animals allowed here!"
-            pawzza "Meow! Meow! (I better run!)"
-            return
+    n "Pawzza sneaks towards the meat aisle and snatches a sausage link."
+    n "As he turns to leave, a security guard spots him."
+    guard "Hey! No animals allowed here!"
+    pawzza "Meow! Meow! (I better run!)"
+    return
 
