@@ -116,7 +116,7 @@ label upstairs:
                     "You have made a total of %(attempts)s attempts of 3."
                     "If you are worried about tripping the alarm you can always go downstairs."
                     call puzzle_solve
-            return
+    return
 label door_unlocked:
     "The keypad beeps in acceptance, and the door unlocks with a satisfying click."
     "You push it open and step through into the unknown."
@@ -139,12 +139,12 @@ label door:
     "You rush across the room and go to open the door."
     m "-louder growling that sounds a lot closer-"
     "Crap, the monster is this way."
-    
     menu doorM:
         "Go through the door anyways":
-            call safe_door            
+            call fight           
         "Run and hide in the box":
             call box
+    return
 
 label alarm:
     scene bg_warehouse
@@ -159,8 +159,10 @@ label alarm:
     return
 
 label safe_door:
+    scene bg_warehouse
     "With no other options, you throw the door open and sprint through."
-    "Just as you clear the threshold, you hear a deafening roar behind you."        "You don't dare look back, focusing all your energy on getting as far away as possible."
+    "Just as you clear the threshold, you hear a deafening roar behind you."        
+    "You don't dare look back, focusing all your energy on getting as far away as possible."
     "Finally, you burst out into the open air, free from the confines of the warehouse."
     "You collapse on the ground, panting heavily but safe at last."
     #good ending
@@ -193,6 +195,7 @@ label fight:
 label qte_success:
     "You and the monster stand there panting, worn out from the fight."
     "You blink and suddenly the monster has disappeared."
+    hide monster
     show boss_cute
     "Replaced by a cute cat!"
     c "Sorry I didn't mean to frighten you."
@@ -267,3 +270,4 @@ screen qte_simple:
             if time_start < (time_max * 0.25):
                 left_bar "#f00"
                 # this is the part that changes the colour to red if the time reaches less than 25%
+    
