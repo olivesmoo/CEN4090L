@@ -41,7 +41,6 @@ label search_alley:
     carl "Alright, follow me. Let's find something to eat first."
     hide pawzza
     hide carl
-
     return
 
 label venture_city:
@@ -88,5 +87,6 @@ label beg_lady:
     pawzza "Meow! Meow!"
     n "The old lady notices Pawzza and tosses him a piece of chicken."
     return
+
 
 
