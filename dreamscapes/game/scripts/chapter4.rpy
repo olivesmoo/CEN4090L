@@ -2,6 +2,7 @@
 define n = Character("Narrator")
 define pawzza = Character("Pawzza")
 define carl = Character("Carl")
+define old_lady = Character("old_lady")
 image alley_way = "images/ch4 bgs/alley_way.jpeg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
@@ -63,15 +64,12 @@ label explore_park:
         "Go through trash.":
             pawzza "Maybe I can find something to eat in this trash can."
             n "Pawzza digs into the trash and pulls out a half-eaten sandwich, which he devours hungrily."
-            carl "You've got a lot to learn, kitty. That'll put hair on your chest, if you don't get sick first!"
             return
 
         "Beg an old lady.":
             n "An old woman sits on a bench, feeding pigeons."
             pawzza "Let's try my luck with her."
-            pawzza "Meow! Meow!"
-            n "The old lady notices Pawzza and tosses him a piece of chicken."
-            return
+            jump beg_lady
 
 label enter_supermarket:
     scene busy_supermarket
@@ -82,4 +80,13 @@ label enter_supermarket:
     guard "Hey! No animals allowed here!"
     pawzza "Meow! Meow! (I better run!)"
     return
+
+label beg_lady:
+    scene quiet_park
+    show pawzza at right
+    show old_lady at left
+    pawzza "Meow! Meow!"
+    n "The old lady notices Pawzza and tosses him a piece of chicken."
+    return
+
 
