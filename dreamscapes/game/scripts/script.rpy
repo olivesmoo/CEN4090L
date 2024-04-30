@@ -28,6 +28,8 @@ init python:
 
 # The game starts here.
 label start:
+    play music "audio/Catwalk.ogg"
+    stop music
     if current_checkpoint == 'start':
     
         scene bedroom_plain:
