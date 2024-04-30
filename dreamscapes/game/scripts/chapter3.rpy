@@ -182,7 +182,7 @@ label fight:
     "-letters are going to appear on the screen-"
     "-press the corresponding letter on your keyboard before the time runs out to dodge the monsters attacks."
     $ cont = 0 #continue variable
-    $ arr_keys = ["a", "c", "e", "K_UP", "K_SPACE"] #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
+    $ arr_keys = ["a", "w", "s", "d", "q", "e"] #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
     default successes = 0
     call qte_setup(0.7, 0.9, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
     # "Function Call" - see label qte_setup for detail on "function"
