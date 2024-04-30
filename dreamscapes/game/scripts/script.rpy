@@ -28,8 +28,14 @@ init python:
 
 # The game starts here.
 label start:
+    scene bedroom_plain:
+        zoom 0.4
+        xalign 0.5
+    "**yawn**"
+    show blank with dissolve
     if current_checkpoint == 'start':
         if not persistent.player_name:
+
             "Welcome to the dream world."
             $ persistent.player_name = renpy.input("What is your name?")
             $ persistent.player_name = persistent.player_name.strip()
