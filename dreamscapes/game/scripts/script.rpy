@@ -44,7 +44,7 @@ label start:
             e "Pleased to meet you, [persistent.player_name]!"
         else:
             e "Welcome back to the dream world, [persistent.player_name]."
-        scene blank
+            scene blank
     # elif current_checkpoint == 'chapter1start':
     #     jump chapter1start
     elif current_checkpoint == 'chapter2start':

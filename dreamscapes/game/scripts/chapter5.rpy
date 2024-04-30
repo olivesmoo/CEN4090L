@@ -17,19 +17,24 @@ label chap5:
             call straight_in  
 
         "Proceed with caution.":  
-            call caution_in  
+            call caution_in 
+
     return
 
 label straight_in:
     scene scary_dog
     show sandy at hannahspot
     sandy "MEOWWWWWWWWWWWW!"
+    python:
+        chapter_success(5, False)
     return
 
 label caution_in:
     scene level_one
     show sandy at hannahspot
     sandy "Whys it so dark in here??"
+    python:
+        chapter_success(5, True)
     # Continue the storyline for searching in the alley...
     return
 
