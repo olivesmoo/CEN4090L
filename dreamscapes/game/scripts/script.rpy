@@ -28,14 +28,14 @@ init python:
 
 # The game starts here.
 label start:
-    scene bedroom_plain:
-        zoom 0.4
-        xalign 0.5
-    "**yawn**"
-    show blank with dissolve
     if current_checkpoint == 'start':
+    
+        scene bedroom_plain:
+            zoom 0.4
+            xalign 0.5
+        "**yawn**"
+        show blank with dissolve
         if not persistent.player_name:
-
             "Welcome to the dream world."
             $ persistent.player_name = renpy.input("What is your name?")
             $ persistent.player_name = persistent.player_name.strip()
@@ -44,7 +44,7 @@ label start:
             e "Pleased to meet you, [persistent.player_name]!"
         else:
             e "Welcome back to the dream world, [persistent.player_name]."
-        scene blank
+            scene blank
     # elif current_checkpoint == 'chapter1start':
     #     jump chapter1start
     elif current_checkpoint == 'chapter2start':

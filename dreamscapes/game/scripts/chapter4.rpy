@@ -7,6 +7,7 @@ image alley_way = "images/ch4 bgs/alley_way.jpeg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
+image old_house = "images/ch4 bgs/old_house.jpeg"
 
 label Chap4:
     scene alley_way
@@ -85,8 +86,26 @@ label beg_lady:
     show pawzza at right
     show old_lady at left
     pawzza "Meow! Meow!"
-    n "The old lady notices Pawzza and tosses him a piece of chicken."
+    n "The old lady notices Pawzza and tosses him a piece of chicken. She's completley smitten with this kitten!"
+    old_lady "You're so precious I might just have to take you home!"
+    n "Pawzza looks up at the old lady and nuzzles into her legs, attempting to seal the deal. The old lady leans down and picks her up..."
+    jump lady_house
+
+label lady_house: 
+    scene old_house
+    show pawzza at left 
+    pawzza "she must be keeping me if im here..."
+    n "Pawzza looks to the left and there is a small cat bed with food, he looks around but there's no cat."
+    pawzza "what is happening? why does she have all this if ther's no other cat here"
+    show old_lady at right
+    n "The old lady bends down and turns to Pawzza and opens her mouth to say.. "
+    old_lady "I lost my gorgeous Carl days ago "
+    n "pawzza lets out a confused meow"
+    old_lady "Now I have you..... Pawzza!!"
+    old_lady "I cant wait for the adventures that await us!"
     return
+
+    
 
 
 
