@@ -15,6 +15,7 @@ image old_house = im.Scale("images/ch4 bgs/old_house.jpeg", 1920, 1080)
 image park_trash = im.Scale("images/ch4 bgs/park_trash.jpeg", 1920, 1080)
 image aisle = im.Scale("images/ch4 bgs/aisle.jpeg", 1920, 1080)
 image night_streets = im.Scale("images/ch4 bgs/night_streets.jpeg", 1920, 1080)
+image sunset_streets = im.Scale("images/ch4 bgs/sunset_streets.jpeg", 1920, 1080)
 
 label Chap4:
     scene alley_way
@@ -81,11 +82,11 @@ label walk_streets:
     carl "He's a troublemaker, always stirring up chaos. I might need to confront him soon."
     menu:
         "Stand with Carl and confront the troublemaker.":
-            jump fight
+            jump catfight
         "Decide it's too risky and suggest avoiding the conflict.":
             jump noFight
 
-label fight:
+label catfight:
     scene alley_way
     show carl at center
     show pawzza at right
@@ -99,17 +100,17 @@ label fight:
     show fightbub
     n "The confrontation is intense..." 
     hide fightbub
-    show pawzza
-    show carl
+    show pawzza at right
+    show carl at left
     n "Carl's courage inspires Pawzza, and together, they manage to send the troublemaker running."
     jump winning
 
 label noFight:
-    scene alley_way
+    scene city_streets
     show carl at center
     show pawzza at right
     pawzza "I think it's too risky to confront him. We should find another way."
-    carl "I understand your concern, but I have to do this. Take care of yourself."
+    carl "I understand your concern, but I have to do this. Take care of yourself..."
     jump pawzzaAlone
 
 label pawzzaAlone:
@@ -123,7 +124,14 @@ label pawzzaAlone:
 
 
 label winning: 
-    # they beat the dog and are now the kings of the city 
+    scene sunset_streets 
+    show pawzza at center 
+    show carl at left
+    n "Carl and Pawzza, now hailed as the 'kings of the streets,' patrol their territory, ensuring peace and safety for all their friends."
+    n "Their heroic actions have earned them respect and admiration from everyone in the area."
+    pawzza "I'm glad we stood up to him, Carl. We really made a difference."
+    carl "Yes, Pawzza, we did. And we'll keep making a difference, together."
+    n "With a newfound purpose, Pawzza and Carl continue their adventures, knowing they can face whatever comes their way."
     python: 
         chapter_success(1, True)
     return
