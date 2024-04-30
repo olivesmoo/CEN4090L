@@ -2,14 +2,19 @@
 define n = Character("Narrator")
 define guard = Character("Guard")
 define pawzza = Character("Pawzza")
+define enemy = Character("Mikey")
 define carl = Character("Carl")
+define fightbub = Character("fightbub")
 define old_lady = Character("Old lady")
 image alley_way = "images/ch4 bgs/alley_way.jpeg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
+image pound = "images/ch4 bgs/pound.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
 image old_house = im.Scale("images/ch4 bgs/old_house.jpeg", 1920, 1080)
 image park_trash = im.Scale("images/ch4 bgs/park_trash.jpeg", 1920, 1080)
+image aisle = im.Scale("images/ch4 bgs/aisle.jpeg", 1920, 1080)
+image night_streets = im.Scale("images/ch4 bgs/night_streets.jpeg", 1920, 1080)
 
 label Chap4:
     scene alley_way
@@ -44,6 +49,83 @@ label search_alley:
     carl "Alright, follow me. Let's find something to eat first."
     hide pawzza
     hide carl
+    jump food_search
+
+label food_search:
+    scene city_streets
+    show pawzza at center
+    show carl at left
+    n "Carl leads Pawzza through the bustling city streets. As they turn a corner, they spot a street vendor leaving behind some leftovers."
+    carl "Look there, Pawzza! What should we go for?"
+    
+    menu:
+        "Fish from the seafood stall.":
+            jump food_choice
+        "Burger from the fast food bin.":
+            jump food_choice
+        
+label food_choice: 
+    scene city_streets
+    show pawzza at center 
+    show carl at left
+    carl "That was a good choice! now c'mon, there's something i need help with...."
+    n "Pawzza looks at carl confused but runs to follow him"
+    jump walk_streets
+
+label walk_streets: 
+    scene city_streets
+    show pawzza at right
+    show carl at center
+    carl "As we walk these streets, I need to tell you about someone... my arch enemy. He's been making life tough for a lot of us here."
+    pawzza "What's going on?"
+    carl "He's a troublemaker, always stirring up chaos. I might need to confront him soon."
+    menu:
+        "Stand with Carl and confront the troublemaker.":
+            jump fight
+        "Decide it's too risky and suggest avoiding the conflict.":
+            jump noFight
+
+label fight:
+    scene alley_way
+    show carl at center
+    show pawzza at right
+    n "Carl and Pawzza stand firm, ready to confront the troublemaker head-on."
+    carl "This ends today! We're not letting you push us around anymore!"
+    hide carl
+    hide pawzza
+    show enemy 
+    enemy "Alright lets do this!!!!!!"
+    hide enemy
+    show fightbub
+    n "The confrontation is intense..." 
+    hide fightbub
+    show pawzza
+    show carl
+    n "Carl's courage inspires Pawzza, and together, they manage to send the troublemaker running."
+    jump winning
+
+label noFight:
+    scene alley_way
+    show carl at center
+    show pawzza at right
+    pawzza "I think it's too risky to confront him. We should find another way."
+    carl "I understand your concern, but I have to do this. Take care of yourself."
+    jump pawzzaAlone
+
+label pawzzaAlone:
+    scene night_streets
+    show pawzza 
+    n "Pawzza decides it's too risky to join the confrontation and leaves. As he walks the lonely city streets, he can't shake off the guilt, wondering if Carl made it out okay."
+    n "For the rest of his life, Pawzza remains haunted by that decision, always looking over his shoulder, never truly finding peace."
+    python: 
+        chapter_success(1, False)
+    return
+
+
+label winning: 
+    # they beat the dog and are now the kings of the city 
+    python: 
+        chapter_success(1, True)
     return
 
 label venture_city:
@@ -116,8 +198,35 @@ label enter_supermarket:
     pawzza "So many smells and so much food!"
     n "Pawzza sneaks towards the meat aisle and snatches a sausage link."
     n "As he turns to leave, a security guard spots him."
+    hide pawzza 
+    hide guard
+    show pawzza at right
+    show guard at left
     guard "Hey! No animals allowed here!"
-    pawzza "Meow! Meow! (I better run!)"
+    pawzza "I better run!"
+    jump chase
+
+label chase: 
+    scene aisle
+    show pawzza  
+    n "The guard chases Pawzza through the aisles, but Pawzza is too quick and nearly escapes."
+    hide pawzza 
+    show guard 
+    guard "Wait, little guy, you need help!"
+    n "The guard, feeling concerned for Pawzza, calls animal control."
+    hide guard
+    show pawzza at right 
+    show guard at left
+    n "Animal control arrives quickly and gently captures Pawzza, taking him to the local animal shelter."
+    jump pound
+
+label pound: 
+    scene pound
+    show pawzza
+    n "At the shelter, Pawzza finds a temporary home with the promise of a future forever home."
+    pawzza "This is AWFUL!"
+    python:
+        chapter_success(1, False)
     return
 
     
