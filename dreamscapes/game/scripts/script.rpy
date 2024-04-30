@@ -35,7 +35,7 @@ label start:
             xalign 0.5
         "**yawn**"
         show blank with dissolve
-	if not persistent.player_name:
+        if not persistent.player_name:
             "Welcome to the dream world."
             $ persistent.player_name = renpy.input("What is your name?")
             $ persistent.player_name = persistent.player_name.strip()
