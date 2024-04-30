@@ -5,6 +5,7 @@ define pawzza = Character("Pawzza")
 define carl = Character("Carl")
 define old_lady = Character("Old lady")
 image alley_way = "images/ch4 bgs/alley_way.jpeg"
+image park_trash = "images/ch4 bgs/park_trash.jpg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
@@ -64,28 +65,29 @@ label explore_park:
     menu:
         "Go through trash.":
             pawzza "Maybe I can find something to eat in this trash can."
-            n "Pawzza digs into the trash and pulls out a half-eaten sandwich, which he devours hungrily."
-            return
+            jump park_trash 
 
         "Beg an old lady.":
             n "An old woman sits on a bench, feeding pigeons."
             pawzza "Let's try my luck with her."
             jump beg_lady
 
-label enter_supermarket:
-    scene busy_supermarket
-    show pawzza at center
-    pawzza "So many smells and so much food!"
-    n "Pawzza sneaks towards the meat aisle and snatches a sausage link."
-    n "As he turns to leave, a security guard spots him."
-    guard "Hey! No animals allowed here!"
-    pawzza "Meow! Meow! (I better run!)"
-    return
+label park_trash:
+    scene park_trash
+    show pawzza
+    n "Pawzza digs into the trash and pulls out a half-eaten sandwich, which he devours hungrily."
+    n "As Pawzza licks the last crumbs from his mouth, he looks around the empty park, the dim streetlights casting long shadows."
+    n "With no home to return to and no one to guide him, a cold realization washes over him."
+    n "In the vast, indifferent city, he's utterly alone."
+    n "And perhaps, he always will be."
+python:
+    chapter_success(1, False)
+return
 
 label beg_lady:
     scene quiet_park
     show pawzza at right
-    show Glenda at left
+    show old_lady at left
     pawzza "Meow! Meow!"
     n "The old lady, Glenda, notices Pawzza and tosses him a piece of chicken. She's completley smitten with this kitten!"
     old_lady "You're so precious I might just have to take you home!"
@@ -104,6 +106,18 @@ label lady_house:
     n "pawzza lets out a confused meow"
     old_lady "Now I have you..... Pawzza!!"
     old_lady "I cant wait for the adventures that await us!"
+    python:
+        chapter_success(1, True)
+    return
+
+label enter_supermarket:
+    scene busy_supermarket
+    show pawzza at center
+    pawzza "So many smells and so much food!"
+    n "Pawzza sneaks towards the meat aisle and snatches a sausage link."
+    n "As he turns to leave, a security guard spots him."
+    guard "Hey! No animals allowed here!"
+    pawzza "Meow! Meow! (I better run!)"
     return
 
     
