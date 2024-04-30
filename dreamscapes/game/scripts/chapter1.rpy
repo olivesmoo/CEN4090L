@@ -1,3 +1,5 @@
+# $ renpy.include("scripts.rpy")
+
 define e = Character("Cat")
 define f = Character("Catective")
 
@@ -19,11 +21,14 @@ label chap1:
     
 label yes:
     hide cat_wig
-
     show detective_cat
     f "eh?"
+    python:
+        chapter_success(1, False)
     return
 
 label nah:
     e "lol just a joke bruh"
+    python:
+        chapter_success(1, True)
     return

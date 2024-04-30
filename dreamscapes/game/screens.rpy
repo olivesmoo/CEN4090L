@@ -658,10 +658,15 @@ screen chapter_menu:
                 spacing gui.slot_spacing
                 for i, (checkpoint_name, checkpoint_label) in zip(range(6), checkpoints):
                     if is_checkpoint_visited(checkpoint_label):
-                        imagebutton:
-                            idle "images/chapters/ch{}.png".format(i+1)
-                            hover "images/chapters/ch{}_highlight.png".format(i+1)
-                            action [SetVariable("current_checkpoint", checkpoint_label), Start()]
+                        if persistent.completed_chapters[i+1] == False:
+                            imagebutton:
+                                idle "images/chapters/ch{}.png".format(i+1)
+                                hover "images/chapters/ch{}_highlight.png".format(i+1)
+                                action [SetVariable("current_checkpoint", checkpoint_label), Start()]
+                        else:
+                            imagebutton:
+                                idle "images/chapters/ch{}.png".format(i+1)
+                                action [SetVariable("current_checkpoint", checkpoint_label), Start()]
                     else:
                         image "images/chapters/lock.png"
 

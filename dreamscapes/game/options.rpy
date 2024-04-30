@@ -142,7 +142,10 @@ default preferences.afm_time = 15
 ##
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
-
+define config.has_autosave = False
+define config.has_quicksave = False
+define config.autosave_on_quit = False
+define config.autosave_on_choice = False
 define config.save_directory = "test-1706402504"
 
 
