@@ -49,6 +49,8 @@ label start:
         jump chapter4start
     elif current_checkpoint == 'chapter5start':
         jump chapter5start      
+    elif current_checkpoint == 'endingstart':
+        jump endingstart
         
 label chapter1start:
     python:
@@ -95,8 +97,14 @@ label chapter5start:
     jump endingstart
 
 label endingstart:
-    if completed_all:
+    # python:
+    #     persistent.completed_chapters[1] = True
+    #     persistent.completed_chapters[2] = False
+    #     persistent.completed_chapters[3] = False
+    #     persistent.completed_chapters[4] = False
+    #     persistent.completed_chapters[5] = False
+    if completed_all():
         call ending
     else:
-        call ending # temporary. change it to something else later
+        call screen final_screen("The Final Chapter")
     return
