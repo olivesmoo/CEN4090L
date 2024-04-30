@@ -5,11 +5,11 @@ define pawzza = Character("Pawzza")
 define carl = Character("Carl")
 define old_lady = Character("Old lady")
 image alley_way = "images/ch4 bgs/alley_way.jpeg"
-image park_trash = "images/ch4 bgs/park_trash.jpg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
 image old_house = im.Scale("images/ch4 bgs/old_house.jpeg", 1920, 1080)
+image park_trash = im.Scale("images/ch4 bgs/park_trash.jpeg", 1920, 1080)
 
 label Chap4:
     scene alley_way
