@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -120,7 +120,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 40
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
@@ -142,7 +142,10 @@ default preferences.afm_time = 15
 ##
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
-
+define config.has_autosave = False
+define config.has_quicksave = False
+define config.autosave_on_quit = False
+define config.autosave_on_choice = False
 define config.save_directory = "test-1706402504"
 
 

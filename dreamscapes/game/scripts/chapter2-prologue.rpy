@@ -1,10 +1,7 @@
 define c = Character("Catective")
 define d = Character("DJ")
-<<<<<<< Updated upstream
-=======
 image MewParisNight = im.Scale("images/ch2 bgs/MewParisNight.png", 1920, 1080)
 image FancyBar = im.Scale("images/ch2 bgs/FancyBar.jpg", 1920, 1080)
->>>>>>> Stashed changes
 
 label chap2pro:
     "We're in chapter 2!!"
@@ -79,7 +76,6 @@ label sorry:
     show detective_cat_sad
     "The Catective makes a disgruntled sound before coughing up a crumpled 5 dollar bill. Sobered from a weeping wallet, the Catective hobbles home and collapses upon an unmade bed, lapsing into a dreamless slumber."
     hide detective_cat_sad
-
     return
 
 label law:
@@ -90,17 +86,6 @@ label law:
     c "Yeah, I said it! I could arrest you right now, little lady!"
     hide detective_cat_angry
 
-<<<<<<< Updated upstream
-    show cat_wig
-    d "Damn. F*** the police, and f*** this sh*t."
-    hide cat_wig
-
-    "*Cue Pokemon battle but for now he loses sadly*"
-
-    show cat_wig
-    d "Not so hot sh*t now, huh “officer”? Have a good f****** night, d*** head."
-    hide cat_wig
-=======
     show arty_angry
     d "Damn. F*** the police, and f*** this sh*t."
     hide arty_angry
@@ -110,17 +95,15 @@ label law:
     show arty_angry
     d "Not so hot sh*t now, huh “officer”? Have a good f****** night, d*** head."
     hide arty_angry
->>>>>>> Stashed changes
 
     "The DJ promptly hurries out, head held high as the crowd parts for her after the decidedly one-sided brawl. The Catective, pride decimated, literally melts into a puddle and dies of embarrassment, broken and defeated by a kitten a third of his size."
 
     "Game Over :("
 
-    $ game_over = True
     return
 
 label pay:
-    d "...Be so f******* for real right now."
+    d "...Be so fucking for real right now."
 
     "The DJ has a dangerous glint in her eyes, sparking electric over her sunglasses. It wouldn’t take a genius to see that she's very obviously displeased by this."
     "Her cool glare screams “Are you really that desperate for money?” It reminds you of…well…you promised yourself you wouldn't think of him..."
