@@ -7,7 +7,7 @@ init python:
     if not persistent.visited_checkpoints:
         persistent.visited_checkpoints = {}
     if not persistent.completed_chapters:
-        persistent.completed_chapters = {1: False, 2: False, 3: False, 4: False, 5: False}
+        persistent.completed_chapters = {1: True, 2: False, 3: False, 4: False, 5: False}
 
     current_checkpoint = 'start'
 
@@ -37,10 +37,10 @@ label start:
                 $ persistent.player_name="Nameless One"
             e "Pleased to meet you, [persistent.player_name]!"
         else:
-            e "Welcome back to the dream world, [persistent.player_name]"
+            e "Welcome back to the dream world, [persistent.player_name]."
         scene blank
-    elif current_checkpoint == 'chapter1start':
-        jump chapter1start
+    # elif current_checkpoint == 'chapter1start':
+    #     jump chapter1start
     elif current_checkpoint == 'chapter2start':
         jump chapter2start
     elif current_checkpoint == 'chapter3start':
@@ -52,18 +52,18 @@ label start:
     elif current_checkpoint == 'endingstart':
         jump endingstart
         
-label chapter1start:
-    python:
-        mark_checkpoint_visited("chapter1start")
-    call screen chapter_title("Chapter 1: Opening")
-    call chap1
-    scene blank
-    jump chapter2start
+# label chapter1start:
+#     python:
+#         mark_checkpoint_visited("chapter1start")
+#     call screen chapter_title("Chapter 1: Opening")
+#     call chap1
+#     scene blank
+#     jump chapter2start
 
 label chapter2start:
     python:
         mark_checkpoint_visited("chapter2start")
-    call screen chapter_title("Chapter 2: Catective")
+    call screen chapter_title("Chapter 1: Catective")
     call chap2pro
     if game_over == False:
         call chap2d1
@@ -75,7 +75,7 @@ label chapter2start:
 label chapter3start:
     python:
         mark_checkpoint_visited("chapter3start")
-    call screen chapter_title("Chapter 3: Cat Warehouse")
+    call screen chapter_title("Chapter 2: Cat Warehouse")
     call chap3
     scene blank
     jump chapter4start
@@ -83,7 +83,7 @@ label chapter3start:
 label chapter4start:
     python:
         mark_checkpoint_visited("chapter4start")
-    call screen chapter_title("Chapter 4")
+    call screen chapter_title("Chapter 3")
     call Chap4
     scene blank
     jump chapter5start
@@ -91,7 +91,7 @@ label chapter4start:
 label chapter5start:
     python:
         mark_checkpoint_visited("chapter5start")
-    call screen chapter_title("Chapter 5")
+    call screen chapter_title("Chapter 4")
     call chap5
     scene blank
     jump endingstart
