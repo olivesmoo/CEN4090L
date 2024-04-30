@@ -24,13 +24,13 @@ init python:
             persistent.completed_chapters[chapter] = True
     
     def completed_all():
-        return all(persistent.completed_chapters[2:6])
+        return all(persistent.completed_chapters[i] for i in range(2, 6))
 
 # The game starts here.
 label start:
     if current_checkpoint == 'start':
-        "Welcome to the dream world."
         if not persistent.player_name:
+            "Welcome to the dream world."
             $ persistent.player_name = renpy.input("What is your name?")
             $ persistent.player_name = persistent.player_name.strip()
             if persistent.player_name == "":
@@ -53,7 +53,7 @@ label start:
 label chapter1start:
     python:
         mark_checkpoint_visited("chapter1start")
-    call screen chapter_title("Chapter 1: Cat Lab")
+    call screen chapter_title("Chapter 1: Opening")
     call chap1
     scene blank
     jump chapter2start
@@ -91,4 +91,12 @@ label chapter5start:
         mark_checkpoint_visited("chapter5start")
     call screen chapter_title("Chapter 5")
     call chap5
+    scene blank
+    jump endingstart
+
+label endingstart:
+    if completed_all:
+        call ending
+    else:
+        call ending # temporary. change it to something else later
     return
