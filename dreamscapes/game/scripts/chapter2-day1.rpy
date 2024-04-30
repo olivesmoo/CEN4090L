@@ -8,8 +8,6 @@ image MewParisDay = im.Scale("images/ch2 bgs/MewParisDay.png", 1920, 1080)
 image NightClub = im.Scale("images/ch2 bgs/NightClub.png", 1920, 1080)
 
 label chap2d1:
-    "We're in chapter 2!!"
-
     scene Office
     "A few days later, the Catective, sober but not spirited, lounges in a worn yet well-loved armchair. His figure is shadowed by the weak rays of sunlight scattered by the patchy grey overcast."
     "For the most part, the room was empty aside from a few house plants are scattered throughout the eerily quiet office, having long since seen better days if the droop of their yellowing leaves was anything to go by."
@@ -146,7 +144,7 @@ label chap2d1:
     "Taking a moment to compose herself, the DJ seems to transform right before the Catective’s very eyes. Eyes blazing like a rekindled flame, she stands straighter, more sure of herself. She suddenly claps her paws."
 
     d "Since we’ll be working together on this, I think a proper introduction is long overdue!"
-    d "Say, I know you, Catective %(player_name)s Mullen, the Cat Can-Opener that won’t stop until a case is solved. So, allow me to introduce myself!"
+    d "Say, I know you, Catective [persistent.player_name] Mullen, the Cat Can-Opener that won’t stop until a case is solved. So, allow me to introduce myself!"
     d "My name is Artemis Marguerite, but you can call me Arty!"
 
     c "Well, hello Arty, but how do you know all that about me??"
@@ -165,7 +163,8 @@ label chap2d1:
 
     scene MewParisDay
 
-    "A neon-lit sign glows weakly in the overbearing light of the afternoon sun. Stanchions line the entrance to the nightclub, like little toy soldiers protecting the crowds from the otherwise bustling streets of Mew Paris. Now vacated, the stanchions stand against the Mew Parisian crowd, as if protecting civilians from the tragedy inside."
+    "A neon-lit sign glows weakly in the overbearing light of the afternoon sun. Stanchions line the entrance to the nightclub, like little toy soldiers protecting the crowds from the otherwise bustling streets of Mew Paris." 
+    "Now vacated, the stanchions stand against the Mew Parisian crowd, as if protecting civilians from the tragedy inside."
 
     show detective_cat
     c "Le Astra Electrique…"
@@ -176,7 +175,8 @@ label chap2d1:
     hide arty_neutral
 
     scene NightClub
-    "Nudging the caution tape on the door aside, the Catective slowly walks inside and blinks, taking in the sudden darkness. Eerily quiet, the steps from the doorway led out into a wide room, cleared of its usual crowds of cats. As if on a pedestal, the DJ’s booth looms over the space, towering above as if overseeing an abandoned kingdom."
+    "Nudging the caution tape on the door aside, the Catective slowly walks inside and blinks, taking in the sudden darkness."
+    "Eerily quiet, the steps from the doorway led out into a wide room, cleared of its usual crowds of cats. As if on a pedestal, the DJ’s booth looms over the space, towering above as if overseeing an abandoned kingdom."
     "Directly below the pedestal, was the taped outline of a body. The stark white tape was like a beacon in the low-lit room, and the blood stains on the dark wood floors were an even starker contrast."
     
     show detective_cat
@@ -194,7 +194,8 @@ label chap2d1:
     show arty_neutral
     d "Alright, alright. Here’s what I remember."
     d "On the night of Orion’s…passing, I was the DJ for this club up on that booth. It was a gig he got for me before we broke up, and I had to do it despite everything since they couldn’t get anyone else that night."
-    d "I had never mixed music for such a big venue. You should’ve seen it Catective, it was something. A room packed full of cats all swaying and dancing to something I created, singing along to songs I hand-picked for a moment I envisioned them enjoying. The lights, the energy…it was the perfect night I could ask for, really."
+    d "I had never mixed music for such a big venue. You should’ve seen it Catective, it was something."
+    d "A room packed full of cats all swaying and dancing to something I created, singing along to songs I hand-picked for a moment I envisioned them enjoying. The lights, the energy…it was the perfect night I could ask for, really."
     d "But then there was a lull. As the night came to an end, I started playing softer songs since it was almost time for the club to close. I was told to do this around 1:30 AM. I heard shouting and I took off my headphones. It was Orion’s voice, and he was livid."
     d "He had a weird look in his eyes. Like that look when he’s about to change the game, kind of crazed but so much angrier than usual."
     hide arty_neutral
@@ -365,7 +366,7 @@ label chap2d1:
     c "(At least she’s feeling better, but at what cost? I guess being out of the action takes a toll. And maybe one too many milk bottles…)"
     hide detective_cat
 
-    "At the top, the Catective all but dry heaves once he hauls himself up. Lying in a fetile position, he groans pitifully as Arty gracefully sits beside him."
+    "At the top, the Catective all but dry heaves once he hauls himself up. Lying in a fetal position, he groans pitifully as Arty gracefully sits beside him."
 
     show detective_cat
     c "Oh, to be young again…"
@@ -488,7 +489,7 @@ label chap2d1:
     show detective_cat
     c "Just like my life depends on getting down this ladder…"
     "The look Arty sends the Catective is withering, enough to fell several men far older and bigger than the Catective. Sheepishly, he pockets the note but it does little to weaken her overwhelming aura."
-    c "Ok, ok I take it back"
+    c "Ok, ok I take it back."
     hide detective_cat
 
     show arty_neutral

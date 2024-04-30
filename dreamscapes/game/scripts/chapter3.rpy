@@ -1,14 +1,14 @@
-define c = Character("Meowchael")
-define m = Character("Monster")
+define cat = Character("Meowchael")
+define mon = Character("Monster")
 
 label chap3:
-    "We're in chapter 3!!"
+    "We're in chapter 2!!"
     scene bg_warehouse
     "The air smells faintly stale, as if the place has poor ventilation."
     "It's a warehouse, abandoned by the looks of it."
 
     show monster
-    m "-a faint growl sounds from somewhere in the warehouse-"
+    mon "-a faint growl sounds from somewhere in the warehouse-"
 
     "~fear rushes down your spine as you try to determine what to do."
 
@@ -20,7 +20,7 @@ label chap3:
     hide main_cat
 
     show monster
-    m "-growling gets slightly closer-"
+    mon "-growling gets slightly closer-"
     hide monster
 
     show main_cat
@@ -51,7 +51,7 @@ label box:
     "Suddenly, you hear footsteps approaching."
     hide main_cat
     show monster
-    m "-sniffing around, getting closer to your hiding spot-"
+    mon "-sniffing around, getting closer to your hiding spot-"
     hide monster
     show main_cat
     menu box_decision:
@@ -76,11 +76,13 @@ label bad_box:
     "It's very spacious you realize."
     "Perhaps you could live here forever in your new home."
     show monster
-    m "-growl-"
+    mon "-growl-"
     "The monster found you!"
     hide monster
     scene
     "You wake up in a cold sweat"
+    python:
+        chapter_success(3, False)
     return
     #bad ending
 label upstairs:
@@ -122,22 +124,24 @@ label door_unlocked:
     "You push it open and step through into the unknown."
     scene bg_warehouse
     "It's the same room?"
-    c "Congradulations you solved my puzzle."
+    cat "Congradulations you solved my puzzle."
     "A cute cat steps out of the shadows."
     show boss_cute
-    c "Sorry to frighten you but I needed to lead you to my puzzle."
-    c "Solving that puzzle proves that you are worthy of the warehouse."
-    c "You are now the owner of this warehouse and may store whatever you wish in here."
+    cat "Sorry to frighten you but I needed to lead you to my puzzle."
+    cat "Solving that puzzle proves that you are worthy of the warehouse."
+    cat "You are now the owner of this warehouse and may store whatever you wish in here."
     hide boss_cute
     scene
     "You wake up feeling accomplished"
+    python:
+        chapter_success(3, True)
     #good ending
     return
 
 
 label door:
     "You rush across the room and go to open the door."
-    m "-louder growling that sounds a lot closer-"
+    mon "-louder growling that sounds a lot closer-"
     "Crap, the monster is this way."
     
     menu doorM:
@@ -155,6 +159,8 @@ label alarm:
     hide monster
     scene
     "You wake up in a cold sweat."
+    python:
+        chapter_success(3, False)
     #bad ending
     return
 
@@ -163,6 +169,8 @@ label safe_door:
     "Just as you clear the threshold, you hear a deafening roar behind you."        "You don't dare look back, focusing all your energy on getting as far away as possible."
     "Finally, you burst out into the open air, free from the confines of the warehouse."
     "You collapse on the ground, panting heavily but safe at last."
+    python:
+        chapter_success(3, True)
     #good ending
     return
 label fight:
@@ -193,18 +201,23 @@ label fight:
 label qte_success:
     "You and the monster stand there panting, worn out from the fight."
     "You blink and suddenly the monster has disappeared."
+    scene bg_warehouse
     show boss_cute
     "Replaced by a cute cat!"
-    c "Sorry I didn't mean to frighten you."
-    c "I was scared you were going to hurt me."
+    cat "Sorry I didn't mean to frighten you."
+    cat "I was scared you were going to hurt me."
     "Turns out the monster was just a fluffed up cat."
     "You wake up feeling accomplished."
+    python:
+        chapter_success(3, True)
     #Good ending
     return
 
 label qte_failure:
     "The monster lands a hit on the side of your head sending you sprawling to the ground."
     "You wake up in a cold sweat"
+    python:
+        chapter_success(3, False)
     #bad ending
     return
 

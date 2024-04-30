@@ -1,10 +1,11 @@
+define bar = Character("Bartender")
 define c = Character("Catective")
 define d = Character("DJ")
 image MewParisNight = im.Scale("images/ch2 bgs/MewParisNight.png", 1920, 1080)
 image FancyBar = im.Scale("images/ch2 bgs/FancyBar.jpg", 1920, 1080)
 
 label chap2pro:
-    "We're in chapter 2!!"
+    "We're in chapter 1!!"
 
     scene MewParisNight # shows background
 
@@ -21,7 +22,7 @@ label chap2pro:
     hide detective_cat
 
     show cat_wig # shows character
-    d "We're only allowed to serve milk to “functioning” customers geezer…"
+    bar "We're only allowed to serve milk to “functioning” customers geezer…"
     hide cat_wig
 
     show detective_cat_angry
@@ -29,7 +30,7 @@ label chap2pro:
     hide detective_cat_angry
 
     show cat_wig
-    d "..."
+    bar "..."
     hide cat_wig
 
     show detective_cat
