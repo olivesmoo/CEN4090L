@@ -1,13 +1,14 @@
 # definitions
 define n = Character("Narrator")
+define guard = Character("Guard")
 define pawzza = Character("Pawzza")
 define carl = Character("Carl")
-define old_lady = Character("old_lady")
+define old_lady = Character("Glenda")
 image alley_way = "images/ch4 bgs/alley_way.jpeg"
 image city_streets = "images/ch4 bgs/city_street.jpeg"
 image quiet_park = "images/ch4 bgs/park.jpeg"
 image busy_supermarket = "images/ch4 bgs/supermarket.png"
-image old_house = "images/ch4 bgs/old_house.jpeg"
+image old_house = im.Scale("images/ch4 bgs/old_house", 1920, 1080)
 
 label Chap4:
     scene alley_way
@@ -84,11 +85,11 @@ label enter_supermarket:
 label beg_lady:
     scene quiet_park
     show pawzza at right
-    show old_lady at left
+    show Glenda at left
     pawzza "Meow! Meow!"
-    n "The old lady notices Pawzza and tosses him a piece of chicken. She's completley smitten with this kitten!"
+    n "The old lady, Glenda, notices Pawzza and tosses him a piece of chicken. She's completley smitten with this kitten!"
     old_lady "You're so precious I might just have to take you home!"
-    n "Pawzza looks up at the old lady and nuzzles into her legs, attempting to seal the deal. The old lady leans down and picks her up..."
+    n "Pawzza looks up at the Glenda and nuzzles into her legs, attempting to seal the deal. The old lady leans down and picks her up..."
     jump lady_house
 
 label lady_house: 
@@ -99,7 +100,7 @@ label lady_house:
     pawzza "what is happening? why does she have all this if ther's no other cat here"
     show old_lady at right
     n "The old lady bends down and turns to Pawzza and opens her mouth to say.. "
-    old_lady "I lost my gorgeous Carl days ago "
+    old_lady  "I lost my gorgeous Carl days ago "
     n "pawzza lets out a confused meow"
     old_lady "Now I have you..... Pawzza!!"
     old_lady "I cant wait for the adventures that await us!"
