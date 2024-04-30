@@ -1,15 +1,20 @@
 define c = Character("Catective")
 define d = Character("DJ")
+image MewParisNight = im.Scale("images/ch2 bgs/MewParisNight.png", 1920, 1080)
+image FancyBar = im.Scale("images/ch2 bgs/FancyBar.jpg", 1920, 1080)
+
 label chap2pro:
     "We're in chapter 2!!"
 
-    scene bg_test # shows background
+    scene MewParisNight # shows background
 
     "The low caw of a raven settles over the dying glow of the city of Saint-Saens, a small town just outside of the borders of Mew-Paris." 
     "On the edge of town, an unassuming establishment, no more unique than the other cracked cobblestone buildings along the long-since abandoned streets, houses the favored drinking spot of melancholic veterans." 
     "The dimly lit bar of Le Chevalier Déchu gives way to the seemingly perpetual smoky haze of the room, hiding the wear and tear cracks underneath." 
     "Pinpricks of light glimmer like flecks of fool's gold on the low ceiling above, lighting the way for a weary traveler’s demise poorly disguised as respite." 
     "On a lone seat at the corner of the bar furthest from the swaying crowd, an older, grizzled grey tabby cat takes a swig of his sixth glass of milk for the evening."
+
+    scene FancyBar
 
     show detective_cat
     c "I can't believe they wouldn't let me get a seventh. Don't they know the seventh time's the charm…"
@@ -35,15 +40,15 @@ label chap2pro:
     "The room sways and the Catective's body pitches forward, bumping into a smaller figure."
     "Bouncing back as if electrocuted, the jacketed tortoiseshell cat looks on with thinly veiled contempt, hair standing on end, milk splashed all over her dark shirt."
 
-    show cat_wig
+    show arty_angry
     d "You can't be serious right now..."
-    hide cat_wig
+    hide arty_angry
 
     show detective_cat_worried
     c "Oh...Oh I'm so so-"
     hide detective_cat_worried
 
-    show cat_wig
+    show arty_angry
     d "Look man… I've had a long shift and an even longer night. I'm not feeling it right now, so can you please move aside so that I can leave?"
 
     menu drunk:
@@ -60,13 +65,13 @@ label chap2pro:
         
 label sorry:
     d "It's… alright. Honestly. You didn't mean to. Have a good rest of your night… officer."
-    hide cat_wig
+    hide arty_angry
 
     "The DJ promptly hurries out. The Catective forlornly looks at his now empty glass fallen on the floor."
 
-    show cat_wig
+    show arty_angry
     d "Are you going to pay for that?"
-    hide cat_wig
+    hide arty_angry
 
     show detective_cat_sad
     "The Catective makes a disgruntled sound before coughing up a crumpled 5 dollar bill. Sobered from a weeping wallet, the Catective hobbles home and collapses upon an unmade bed, lapsing into a dreamless slumber."
@@ -75,21 +80,21 @@ label sorry:
 
 label law:
     d "..."
-    hide cat_wig
+    hide arty_angry
 
     show detective_cat_angry
     c "Yeah, I said it! I could arrest you right now, little lady!"
     hide detective_cat_angry
 
-    show cat_wig
-    d "Damn. Fuck the police, and fuck this shit."
-    hide cat_wig
+    show arty_angry
+    d "Damn. F*** the police, and f*** this sh*t."
+    hide arty_angry
 
-    "*Cue Pokemon battle but for now he gets the shit slapped out of him*"
+    "*Cue Pokemon battle but for now he loses sadly*"
 
-    show cat_wig
-    d "Not so hot shit now, huh “officer”? Have a good fucking night, dick head."
-    hide cat_wig
+    show arty_angry
+    d "Not so hot sh*t now, huh “officer”? Have a good f****** night, d*** head."
+    hide arty_angry
 
     "The DJ promptly hurries out, head held high as the crowd parts for her after the decidedly one-sided brawl. The Catective, pride decimated, literally melts into a puddle and dies of embarrassment, broken and defeated by a kitten a third of his size."
 
@@ -103,12 +108,12 @@ label pay:
     "The DJ has a dangerous glint in her eyes, sparking electric over her sunglasses. It wouldn’t take a genius to see that she's very obviously displeased by this."
     "Her cool glare screams “Are you really that desperate for money?” It reminds you of…well…you promised yourself you wouldn't think of him..."
 
-    hide cat_wig
+    hide arty_angry
     jump drunk
 
 label question:
     "Yes, I play the music in this less than fine establishment. I also would like to go home if you would please move? You’re blocking the one exit here."
-    hide cat_wig
+    hide arty_angry
 
     show detective_cat
     "(That explains the headphones and… unique costume. Isn’t it a fire hazard to only have one exit here?)"
