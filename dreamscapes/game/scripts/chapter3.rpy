@@ -146,7 +146,7 @@ label door:
     
     menu doorM:
         "Go through the door anyways":
-            call safe_door            
+            call fight            
         "Run and hide in the box":
             call box
 
@@ -166,7 +166,8 @@ label alarm:
 
 label safe_door:
     "With no other options, you throw the door open and sprint through."
-    "Just as you clear the threshold, you hear a deafening roar behind you."        "You don't dare look back, focusing all your energy on getting as far away as possible."
+    "Just as you clear the threshold, you hear a deafening roar behind you."        
+    "You don't dare look back, focusing all your energy on getting as far away as possible."
     "Finally, you burst out into the open air, free from the confines of the warehouse."
     "You collapse on the ground, panting heavily but safe at last."
     python:
