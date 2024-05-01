@@ -1,16 +1,11 @@
-<<<<<<< Updated upstream
-define c = Character("Catective")
-=======
+
 define f = Character("Catective")
 define b = Character("Bartender")
->>>>>>> Stashed changes
 define d = Character("DJ")
 image MewParisNight = im.Scale("images/ch2 bgs/MewParisNight.png", 1920, 1080)
 image FancyBar = im.Scale("images/ch2 bgs/FancyBar.jpg", 1920, 1080)
 
 label chap2pro:
-    "We're in chapter 2!!"
-
     scene MewParisNight # shows background
 
     "The low caw of a raven settles over the dying glow of the city of Saint-Saens, a small town just outside of the borders of Mew-Paris." 
@@ -26,7 +21,7 @@ label chap2pro:
     hide detective_cat
 
     show cat_wig # shows character
-    d "We're only allowed to serve milk to “functioning” customers geezer…"
+    b "We're only allowed to serve milk to “functioning” customers geezer…"
     hide cat_wig
 
     show detective_cat_angry
@@ -34,7 +29,7 @@ label chap2pro:
     hide detective_cat_angry
 
     show cat_wig
-    d "..."
+    b "..."
     hide cat_wig
 
     show detective_cat
@@ -74,13 +69,14 @@ label sorry:
 
     "The DJ promptly hurries out. The Catective forlornly looks at his now empty glass fallen on the floor."
 
-    show arty_angry
-    d "Are you going to pay for that?"
-    hide arty_angry
+    show cat_wig
+    b "Are you going to pay for that?"
+    hide cat_wig
 
     show detective_cat_sad
     "The Catective makes a disgruntled sound before coughing up a crumpled 5 dollar bill. Sobered from a weeping wallet, the Catective hobbles home and collapses upon an unmade bed, lapsing into a dreamless slumber."
     hide detective_cat_sad
+
     return
 
 label law:
@@ -105,10 +101,14 @@ label law:
 
     "Game Over :("
 
+    $ game_over = True
+
+    python:
+        chapter_success(2, False)
     return
 
 label pay:
-    d "...Be so fucking for real right now."
+    d "...Be so f******* for real right now."
 
     "The DJ has a dangerous glint in her eyes, sparking electric over her sunglasses. It wouldn’t take a genius to see that she's very obviously displeased by this."
     "Her cool glare screams “Are you really that desperate for money?” It reminds you of…well…you promised yourself you wouldn't think of him..."

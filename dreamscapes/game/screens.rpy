@@ -644,7 +644,6 @@ screen chapter_menu:
             yalign 0.5
             python:
                 checkpoints = [
-                    ("Chapter 1", "chapter1start"),
                     ("Chapter 2", "chapter2start"),
                     ("Chapter 3", "chapter3start"),
                     ("Chapter 4", "chapter4start"),
@@ -656,19 +655,26 @@ screen chapter_menu:
                 ypos 100
                 xpos 0
                 spacing gui.slot_spacing
-                for i, (checkpoint_name, checkpoint_label) in zip(range(6), checkpoints):
+                for i, (checkpoint_name, checkpoint_label) in zip(range(1, 6), checkpoints):
                     if is_checkpoint_visited(checkpoint_label):
                         if persistent.completed_chapters[i+1] == False:
                             imagebutton:
-                                idle "images/chapters/ch{}.png".format(i+1)
-                                hover "images/chapters/ch{}_highlight.png".format(i+1)
+                                idle "images/chapters/ch{}.png".format(i)
+                                hover "images/chapters/ch{}_highlight.png".format(i)
                                 action [SetVariable("current_checkpoint", checkpoint_label), Start()]
                         else:
                             imagebutton:
-                                idle "images/chapters/ch{}.png".format(i+1)
+                                idle "images/chapters/ch{}_complete.png".format(i)
+                                hover "images/chapters/ch{}_highlight.png".format(i)
                                 action [SetVariable("current_checkpoint", checkpoint_label), Start()]
                     else:
-                        image "images/chapters/lock.png"
+                        if checkpoint_name == "Last Chapter" and completed_all():
+                            imagebutton:
+                                idle "images/chapters/chfinal.png"
+                                hover "images/chapters/chfinal_highlight.png"
+                                action [SetVariable("current_checkpoint", checkpoint_label), Start()]
+                        else:
+                            image "images/chapters/lock.png"
 
 screen file_slots(title):
 
@@ -1206,6 +1212,27 @@ screen chapter_title(chap_num):
                 textbutton "Main Menu" action MainMenu()
 
 
+screen final_screen(inp):
+    modal True
+    add "images/blank.png"
+
+    vbox:
+        xalign 0.5
+        yalign 0.5
+        
+        text inp size 128 xalign 0.5 font "BedPillow.otf"
+        # textbutton "Continue" action Return()
+        # textbutton "Main Menu" action MainMenu()
+
+        text "Return here when you successfully complete all prior"
+        hbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 40  # Adjust the spacing between the buttons
+            
+            frame:
+                # style "ch_title_box"  # Apply a style to the frame for the "Main Menu" button
+                textbutton "Main Menu" action MainMenu()
 
 ## Confirm screen ##############################################################
 ##
