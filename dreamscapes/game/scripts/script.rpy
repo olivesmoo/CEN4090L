@@ -10,11 +10,6 @@ init python:
     # persistent.completed_chapters[4] = False
     # persistent.completed_chapters[5] = False
 
-    persistent.completed_chapters[1] = True
-    persistent.completed_chapters[2] = True
-    persistent.completed_chapters[3] = True
-    persistent.completed_chapters[4] = True
-    persistent.completed_chapters[5] = True
     if not persistent.visited_checkpoints:
         persistent.visited_checkpoints = {}
     if not persistent.completed_chapters:
