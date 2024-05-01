@@ -2,7 +2,6 @@ define cat = Character("Meowchael")
 define mon = Character("Monster")
 
 label chap3:
-    "We're in chapter 2!!"
     scene bg_warehouse
     "The air smells faintly stale, as if the place has poor ventilation."
     "It's a warehouse, abandoned by the looks of it."

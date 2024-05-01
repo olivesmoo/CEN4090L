@@ -119,7 +119,7 @@ label pawzzaAlone:
     n "Pawzza decides it's too risky to join the confrontation and leaves. As he walks the lonely city streets, he can't shake off the guilt, wondering if Carl made it out okay."
     n "For the rest of his life, Pawzza remains haunted by that decision, always looking over his shoulder, never truly finding peace."
     python: 
-        chapter_success(1, False)
+        chapter_success(4, False)
     return
 
 
@@ -133,7 +133,7 @@ label winning:
     carl "Yes, Pawzza, we did. And we'll keep making a difference, together."
     n "With a newfound purpose, Pawzza and Carl continue their adventures, knowing they can face whatever comes their way."
     python: 
-        chapter_success(1, True)
+        chapter_success(4, True)
     return
 
 label venture_city:
@@ -171,7 +171,7 @@ label park_trash:
     n "In the vast, indifferent city, he's utterly alone."
     n "And perhaps, he always will be."
 python:
-    chapter_success(1, False)
+    chapter_success(4, False)
 return
 
 label beg_lady:
@@ -197,7 +197,7 @@ label lady_house:
     old_lady "Now I have you..... Pawzza!!"
     old_lady "I cant wait for the adventures that await us!"
     python:
-        chapter_success(1, True)
+        chapter_success(4, True)
     return
 
 label enter_supermarket:
@@ -234,7 +234,7 @@ label pound:
     n "At the shelter, Pawzza finds a temporary home with the promise of a future forever home."
     pawzza "This is AWFUL!"
     python:
-        chapter_success(1, False)
+        chapter_success(4, False)
     return
 
     

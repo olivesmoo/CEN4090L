@@ -1,7 +1,6 @@
 define sandy = Character("sandy")
 
 label chap5:
-    "We're in chapter 5!!"
     scene farcattree
 
     show sandy at hannahspot
