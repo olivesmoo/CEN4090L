@@ -1,8 +1,5 @@
-define f = Character("Catective")
-define z = Character("Makia Celli")
 define o = Character("Orion")
 define blob = Character("Catglomerate")
-define a = Character("Arty")
 define k = Character("Mitt Catsuragi")
 define filler = Character("Disembodied Voice")
 define tabby = Character("Tabby Cat")
@@ -295,10 +292,28 @@ label chap2d3:
 
     show arty_worried
     a "Catective, you’re going to have to move quickly! We’ve got to get out of here or we’ll be crushed!!"
+    a "Get ready to move!!!"
     hide arty_worried
 
-    #QTE
+    $ cont_cat1 = 1 #continue variable
+    $ keys1 = ["a", "w", "s", "d", "q", "e"] #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
+    default successes_cat1 = 0
+    call qte_setup(2, 2, 0.01, renpy.random.choice(keys1), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+    # "Function Call" - see label qte_setup for detail on "function"
+    # in the above, I randomly select a key from a previously defined set of keys (arr_keys), and randomise the location
+    $ successes_cat1 += 1
+    while cont_cat1 == 1:
+        call qte_setup(0.7, 0.9, 0.01, renpy.random.choice(keys1), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+        if cont_cat1 == 1:
+            $ successes_cat1 += 1
+            if successes_cat1 == 5:
+                jump climb_success
+        # to repeat the qte events until it is missed
+    # Check the result of the quick time event
+    jump badEnd2
+    return
 
+label climb_success:
     "The Catective, having made it to the top of the stairs, noted that Arty had managed to escape her restraints."
     "Grabbing the Catective’s wrist, she wasted no time in dragging him toward the dark, dank expanse behind her."
 
@@ -322,9 +337,26 @@ label chap2d3:
     hide arty_worried
 
     scene black
+    $ cont_cat2 = 1 #continue variable
+    $ keys2 = ["j", "k", "l", "u", "i", "o"] #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
+    $ successes_cat2 = 0
+    call qte_setup(2, 2, 0.01, renpy.random.choice(keys2), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+    # "Function Call" - see label qte_setup for detail on "function"
+    # in the above, I randomly select a key from a previously defined set of keys (arr_keys), and randomise the location
+    $ successes_cat2 += 1
+    # $ cont_cat2 += 1
+    while cont_cat2 == 1:
+        call qte_setup(0.7, 0.9, 0.01, renpy.random.choice(keys2), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+        if cont_cat2 == 1:
+            $ successes_cat2 += 1
+            if successes_cat2 == 5:
+                jump nav_success
+        # to repeat the qte events until it is missed
+    # Check the result of the quick time event
+    jump badEnd3
+    return
 
-    # QTE
-
+label nav_success:
     "Together, as the roar of the monster grows closer, Arty and the Catective raced out of the Catacombs."
     "Winding through narrow corridors and wrapping along looping paths, the Catglomerate never sounded too far behind."
 
@@ -336,8 +368,26 @@ label chap2d3:
     a "This is where the outside leads. Help me out Catective, or we’re not getting out of here alive."
     hide arty_worried
 
-    # QTE
+    $ cont_cat3 = 1 #continue variable
+    $ keys3 = ["j", "f", "t", "g", "h", "y"] #list of keyboard inputs to be selected from. See https://www.pygame.org/docs/ref/key.html for more keys
+    $ successes_cat3 = 0
+    call qte_setup(2, 2, 0.01, renpy.random.choice(keys3), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+    # "Function Call" - see label qte_setup for detail on "function"
+    # in the above, I randomly select a key from a previously defined set of keys (arr_keys), and randomise the location
+    $ successes_cat3 += 1
+    # $ cont_cat3 += 1
+    while cont_cat3 == 1:
+        call qte_setup(0.7, 0.9, 0.01, renpy.random.choice(keys3), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+        if cont_cat3 == 1:
+            $ successes_cat3 += 1
+            if successes_cat3 == 5:
+                jump door_success
+        # to repeat the qte events until it is missed
+    # Check the result of the quick time event
+    jump silly
+    return
 
+label door_success:
     "Arty began to shove and claw at the wood, but to no avail. Taking a breath, the Catective took a step back, and then another."
     "He then runs full speed, slamming his shoulder through the paneling and exiting out on the bright, busy Mew Parisian streets."
 
@@ -546,3 +596,108 @@ label badEnd1:
     python:
         chapter_success(2, False)
     return
+
+label badEnd2:
+    show detective_cat_worried
+    f "Oh no! I'm not gonna make it!"
+    "A falling rock from the crumbling roof falls in front of the stairs. There's no getting around this."
+    hide detective_cat_worried
+
+    show arty_sad
+    a "No, no, no! Catective, you have to get up! I'm not leaving without you."
+    hide arty_sad
+
+    show hydra
+    "The beast howls behind the Catective. It wouldn't be long now."
+    hide hydra
+
+    "The walls tremble as the monster's footsteps strides shake the earth, forming cracks against the marbled floors that threaten to give at a moment's notice."
+
+    show detective_cat_worried
+    f "Kid, can you still hear me?"
+    a "Yes, Catective. I can't move the rocks. There's too many of them!"
+    f "Just listen to me. We don't have time. There's no way you can get me out of here."
+    a "But-"
+    f "No, just listen, please. Find Mitt, my old partner. Tell him I sent you, and tell your story. He's all professional on the outside, but hes' a good guy."
+    f "More than that. He's great. And you're great. You two will get along well."
+    a "Catective? Wait-"
+    f "No. Listen. You're going to find him and he's going to take your case ok? And you will be innocent, I know you are and he'll see that. I promise."
+    a "Catective, [p], there must be, no there IS another solution-"
+    hide detective_cat_worried
+    show detective_cat_angry
+    f "THERE'S NO TIME! JUST GO!"
+    "As the Catective yells, the Catglomerate with its many paws grasps onto his torso."
+    "The Catective cries out, its grip burning into his flesh as it begins to meld together."
+    "Soon, he would be able to think no more. The loss of a mind so brilliant extinguished by the consciousness of the many."
+    a "CATECTIVE NO!! PLEASE, just hang on. I can get help or I can climb over to come get you or-"
+    f "ARTY, LEAVE NOW."
+    "As he feels himself getting pulled into the mass of cats surrounding him, he manages to call out one last thing."
+    f "It'll be okay. Just trust me kid. Believe in another sunrise. Sunrise, Parabellum"
+    hide detective_cat_angry
+
+    scene black
+    "And then, there was silence."
+    "??? Ending"
+
+    $ game_over = False
+
+    python:
+        chapter_success(2, True)
+    return
+
+label badEnd3:
+    show arty_worried
+    "The two cats run straight into a dead end, nowhere to run. Nowhere to hide."
+    a "Oh shoot, I'm not sure where to go anymore...."
+    hide arty_worried
+
+    show detective_cat_worried
+    f "Ah, it's okay. Maybe we can retrace our steps-"
+    blob "ARGHHHHHHHHHHHHHH!!!"
+    f "Maybe not."
+    hide detective_cat_worried
+
+    show arty_sad
+    a "This is all my fault. I'm sorry Catective to drag you into this mess."
+    hide arty_sad
+
+    show detective_cat_sad
+    f "It's alright kiddo. I chose to get involved. And if it means anything, you were the best assistant I could ever ask for."
+    hide detective_cat_sad
+    show detective_cat_happy
+    f "Thanks for getting me back in action for one more run, kid."
+    hide detective_cat_happy
+    show arty_sad
+    a "Thanks for being the only one to believe in me."
+    hide arty_sad
+
+    scene black
+    "The Catglomerate, having at last caught up to them, became their end."
+    "Game Over :("
+
+    $ game_over = True
+
+    python:
+        chapter_success(2, False)
+    return
+
+label silly:
+    "The Catective attempts to kick the door down, but the door ends up kicking him."
+    "He falls upon his buttocks on the floor, thoroughly thrashed."
+    "The DJ admirably attempts to keep a straight face, but fails miserably. She bursts into laughter almost immediately."
+
+    show arty_happy
+    a "Is that really the best you can do?"
+    hide arty_happy
+
+    show detective_cat_angry
+    f "Hey, watch it you!"
+    f "I got through everything else! You think a door is gonna be the thing that stops me?"
+    f "Watch and learn, punk!"
+
+    jump door_success
+    return
+
+
+
+    
