@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 define c = Character("Catective")
+=======
+define f = Character("Catective")
+define b = Character("Bartender")
+>>>>>>> Stashed changes
 define d = Character("DJ")
 image MewParisNight = im.Scale("images/ch2 bgs/MewParisNight.png", 1920, 1080)
 image FancyBar = im.Scale("images/ch2 bgs/FancyBar.jpg", 1920, 1080)
@@ -17,7 +22,7 @@ label chap2pro:
     scene FancyBar
 
     show detective_cat
-    c "I can't believe they wouldn't let me get a seventh. Don't they know the seventh time's the charm…"
+    f "I can't believe they wouldn't let me get a seventh. Don't they know the seventh time's the charm…"
     hide detective_cat
 
     show cat_wig # shows character
@@ -25,7 +30,7 @@ label chap2pro:
     hide cat_wig
 
     show detective_cat_angry
-    c "What was that? I'm only 6 years old and counting!"
+    f "What was that? I'm only 6 years old and counting!"
     hide detective_cat_angry
 
     show cat_wig
@@ -33,7 +38,7 @@ label chap2pro:
     hide cat_wig
 
     show detective_cat
-    c "(I suppose it is getting late. I should probably head home for the night…)"
+    f "(I suppose it is getting late. I should probably head home for the night…)"
     hide detective_cat
 
     "Catective reluctantly slides off his stool, still nursing his last glass of milk, before taking a heavy step toward the exit." 
@@ -45,7 +50,7 @@ label chap2pro:
     hide arty_angry
 
     show detective_cat_worried
-    c "Oh...Oh I'm so so-"
+    f "Oh...Oh I'm so so-"
     hide detective_cat_worried
 
     show arty_angry
@@ -83,7 +88,7 @@ label law:
     hide arty_angry
 
     show detective_cat_angry
-    c "Yeah, I said it! I could arrest you right now, little lady!"
+    f "Yeah, I said it! I could arrest you right now, little lady!"
     hide detective_cat_angry
 
     show arty_angry
