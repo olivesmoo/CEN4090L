@@ -5,7 +5,7 @@ Dreamscapes ™ is a visual novel game with an exciting and immersive storyline 
 
 ## To run the Ren'Py project
 - clone the Github
-- install the renpy launcher and remember what you set your project directory to be
+- install the [renpy launcher](https://www.renpy.org/latest.html) and remember what you set your project directory to be
 - copy the "dreamscapes" folder from the repository to your renpy project directory
 - refresh renpy projects from the Renpy launcher
 - click "Launch Project"
