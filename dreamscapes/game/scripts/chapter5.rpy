@@ -163,7 +163,7 @@ label choice_4d:
 
 label choice_5a:
     scene backdrop
-    show Potion at exactmiddle
+    show potion at exactmiddle
     n "There sits a magic potion. Should you drink it though?"
     menu:
         "Drink the potion":
@@ -218,6 +218,7 @@ label choice_6d:
             call choice_7c
         "Go right":
             call choice_7d
+    return 
 
 label choice_7a:
     scene dark_background
@@ -232,21 +233,25 @@ label choice_7a:
             call choice_8a
         "Say no thank you!":
             call choice_8b
+    return
 
 label choice_7b:
     scene 4a
-    show Spectral_cat at dogspot
+    show spectral_cat at dogspot
     n "The spectral cat challenges you to a game of wits. You must navigate through illusions and tricks."
-    hide Spectral_cat
+    hide spectral_cat
 
     n "Solve for x in this math equation: 2x + 5 = 9"
     menu:
         "The answer is 7":
-            pass_test = False
+            python:
+                pass_test = False
         "The answer is 2":
-            pass_test = True
+            python:
+                pass_test = True
     if pass_test:
-        show cat_happy exactmiddle
+        show cat_happy at hannahspot
+        show charm at dogspot
         n "Congratulations! You've earned a charm of nine lives, offering protection from one fatal mistake."
         n "Fortunately, this charm aided you in exiting the house"
         python: 
@@ -256,6 +261,7 @@ label choice_7b:
         show cat_dead at exactmiddle
         n "Unfortunately, you did not pass the test."
         call try_again
+    return
 
 label choice_7c:
     scene level_one
