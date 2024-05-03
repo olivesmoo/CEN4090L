@@ -1,6 +1,4 @@
-define f = Character("Catective")
 define r = Character("Radio")
-define d = Character("DJ")
 define a = Character("Arty")
 define mystery = Character("Mystery")
 define bouncer = Character("Bouncer")
@@ -17,7 +15,9 @@ image Fire = im.Scale("images/ch2 bgs/fire.jpg", 1920, 1080)
 
 label chap2d1:
     scene black
+
     "Day 1 Investigation"
+
     scene Office
     "A few days later, the Catective, sober but not spirited, lounges in a worn yet well-loved armchair. His figure is shadowed by the weak rays of sunlight scattered by the patchy grey overcast."
     "For the most part, the room was empty aside from a few house plants are scattered throughout the eerily quiet office, having long since seen better days if the droop of their yellowing leaves was anything to go by."
@@ -170,7 +170,6 @@ label chap2d1:
     "Taking a moment to compose herself, the DJ seems to transform right before the Catective’s very eyes. Eyes blazing like a rekindled flame, she stands straighter, more sure of herself. She suddenly claps her paws."
 
     d "Since we’ll be working together on this, I think a proper introduction is long overdue!"
-
     d "Say, I know you, Catective [p] Mullen, the Cat Can-Opener that won’t stop until a case is solved. So, allow me to introduce myself!"
     d "My name is Artemis Marguerite, but you can call me Arty!"
     hide arty_happy
@@ -204,8 +203,8 @@ label chap2d1:
     hide arty_neutral
 
     scene NightClub
-    "Nudging the caution tape on the door aside, the Catective slowly walks inside and blinks, taking in the sudden darkness."
-    "Eerily quiet, the steps from the doorway led out into a wide room, cleared of its usual crowds of cats. As if on a pedestal, the DJ’s booth looms over the space, towering above as if overseeing an abandoned kingdom."
+    "Nudging the caution tape on the door aside, the Catective slowly walks inside and blinks, taking in the sudden darkness. Eerily quiet, the steps from the doorway led out into a wide room, cleared of its usual crowds of cats."
+    "As if on a pedestal, the DJ’s booth looms over the space, towering above as if overseeing an abandoned kingdom."
     "Directly below the pedestal, was the taped outline of a body. The stark white tape was like a beacon in the low-lit room, and the blood stains on the dark wood floors were an even starker contrast."
     
     show detective_cat
@@ -221,12 +220,12 @@ label chap2d1:
     hide detective_cat
 
     show arty_neutral
-    d "Alright, alright. Here’s what I remember."
-    d "On the night of Orion’s…passing, I was the DJ for this club up on that booth. It was a gig he got for me before we broke up, and I had to do it despite everything since they couldn’t get anyone else that night."
-    d "I had never mixed music for such a big venue. You should’ve seen it Catective, it was something."
-    d "A room packed full of cats all swaying and dancing to something I created, singing along to songs I hand-picked for a moment I envisioned them enjoying. The lights, the energy…it was the perfect night I could ask for, really."
-    d "But then there was a lull. As the night came to an end, I started playing softer songs since it was almost time for the club to close. I was told to do this around 1:30 AM. I heard shouting and I took off my headphones. It was Orion’s voice, and he was livid."
-    d "He had a weird look in his eyes. Like that look when he’s about to change the game, kind of crazed but so much angrier than usual."
+    a "Alright, alright. Here’s what I remember."
+    a "On the night of Orion’s…passing, I was the DJ for this club up on that booth. It was a gig he got for me before we broke up, and I had to do it despite everything since they couldn’t get anyone else that night."
+    a "I had never mixed music for such a big venue. You should’ve seen it Catective, it was something. A room packed full of cats all swaying and dancing to something I created, singing along to songs I hand-picked for a moment I envisioned them enjoying." 
+    a "The lights, the energy…it was the perfect night I could ask for, really."
+    a "But then there was a lull. As the night came to an end, I started playing softer songs since it was almost time for the club to close. I was told to do this around 1:30 AM. I heard shouting and I took off my headphones. It was Orion’s voice, and he was livid."
+    a "He had a weird look in his eyes. Like that look when he’s about to change the game, kind of crazed but so much angrier than usual."
     hide arty_neutral
 
     show detective_cat
@@ -527,7 +526,6 @@ label chap2d1:
     show detective_cat_sad
     f "Just like my life depends on getting down this ladder…"
     "The look Arty sends the Catective is withering, enough to fell several men far older and bigger than the Catective. Sheepishly, he pockets the note but it does little to weaken her overwhelming aura."
-    hide detective_cat
     f "Ok, ok I take it back"
     hide detective_cat_sad
 
@@ -738,6 +736,8 @@ label chap2d1:
     hide arty_happy
 
     $ chosen = []
+    $ allDone = False
+    $ curiousCount = 0
     menu interrogation:
         set chosen
         "(If we can make him keep talking, we may be able to prove he was there)"
@@ -750,8 +750,14 @@ label chap2d1:
         "I thought the music was pretty good.":
             jump dumb
         "I don't need anymore evidence! We've caught you red-handed!":
-            jump uhoh
-            return
+            if curiousCount > 2:
+                $ allDone = True
+
+            if allDone == False:
+                jump uhoh
+                return
+            else:
+                pass
     
     show detective_cat_angry
     "We’ve heard enough. I’m a Catective, and you are being held accountable for being a witness to the murder of Orion Delacroix."
@@ -890,6 +896,7 @@ label glitter:
     show detective_cat
     f "(Bingo!)"
     hide detective_cat
+    $ curiousCount += 1
     jump interrogation
 
 label rumors:
@@ -910,7 +917,7 @@ label rumors:
     show detective_cat
     f "Interesting..."
     hide detective_cat
-
+    $ curiousCount += 1
     jump interrogation
 
 label hisName:
@@ -923,7 +930,7 @@ label hisName:
     show detective_cat
     f "Weird indeed..."
     hide detective_cat
-
+    $ curiousCount += 1
     jump interrogation
 
 label dumb:
@@ -937,6 +944,7 @@ label dumb:
     bouncer "Oh. Oh! Yes well...I guess you got me there. I must have mixed up the dates, haha."
     "Off to the side, Arty seems oddly pleased."
     hide detective_cat
+    $ curiousCount += 1
     jump interrogation
 
 
